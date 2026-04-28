@@ -9,6 +9,7 @@ import { login } from '../shared/api/axios'
 
 export default function LoginPages() {
 	const [showPassword, setShowPassword] = useState(false)
+
 	const {
 		register,
 		handleSubmit,
@@ -16,12 +17,10 @@ export default function LoginPages() {
 	} = useForm<Inputs>()
 
 	const navigate = useNavigate()
-
 	const setAuth = useAuthState(state => state.setAuth)
 
 	useEffect(() => {
 		const token = localStorage.getItem('token')
-
 		if (token) {
 			setAuth(true)
 		}
@@ -31,7 +30,10 @@ export default function LoginPages() {
 		try {
 			const response = await login(data.email, data.password)
 
-			console.log('SUCCESS', response)
+			// сохраняем токен
+			localStorage.setItem('token', response.token)
+
+			setAuth(true)
 
 			navigate('/')
 		} catch (error) {
@@ -40,86 +42,85 @@ export default function LoginPages() {
 	}
 
 	return (
-		// Центрируем форму на экране
-		<div className="min-h-screen flex items-center justify-center bg-gray-50 p-4">
+		<div className="min-h-screen flex items-center justify-center bg-gray-50 px-4 sm:px-6 lg:px-8">
 			<form
 				onSubmit={handleSubmit(onSubmit)}
-				className="w-full max-w-md bg-white p-8 rounded-2xl shadow-lg flex flex-col gap-6"
+				className="w-full max-w-md sm:max-w-lg bg-white p-6 sm:p-8 rounded-2xl shadow-lg flex flex-col gap-6"
 			>
-				<header>
-					<h1 className="text-4xl font-bold text-center text-gray-800">
+				{/* TITLE */}
+				<header className="text-center">
+					<h1 className="text-3xl sm:text-4xl font-bold text-gray-800">
 						Sign In
 					</h1>
 				</header>
 
-				<div className="flex flex-col gap-4">
-					{/* Поле Email */}
-					<div className="flex flex-col gap-1">
+				{/* EMAIL */}
+				<div className="flex flex-col gap-1">
+					<div className="relative">
 						<input
-							{...register('email', { required: 'Email is required' })}
+							{...register('email', {
+								required: 'Email is required'
+							})}
 							placeholder="Email"
-							className={`border p-3 rounded-xl focus:outline-blue-500 ${errors.email ? 'border-red-500' : 'border-gray-300'}`}
+							className={`w-full border p-3 pl-10 rounded-xl focus:outline-blue-500 ${
+								errors.email ? 'border-red-500' : 'border-gray-300'
+							}`}
 						/>
 
-						<button>
-							{showPassword ? (
-								<MdOutlineMailOutline
-									className="absolute right-150 top-62"
-									size={30}
-								/>
-							) : (
-								<MdOutlineMailOutline
-									className="absolute right-167 top-31"
-									size={30}
-								/>
-							)}
-						</button>
-
-						{errors.email && (
-							<span className="text-red-500 text-sm">
-								{errors.email.message}
-							</span>
-						)}
+						<MdOutlineMailOutline
+							className="absolute left-2 top-3 text-gray-400"
+							size={30}
+						/>
 					</div>
 
-					{/* Поле Password */}
-					<div className="flex flex-col gap-1">
+					{errors.email && (
+						<span className="text-red-500 text-sm">{errors.email.message}</span>
+					)}
+				</div>
+
+				{/* PASSWORD */}
+				<div className="flex flex-col gap-1">
+					<div className="relative">
 						<input
 							{...register('password', {
 								required: 'Password is required',
-								minLength: { value: 6, message: 'Min length 6 symbols' }
+								minLength: {
+									value: 6,
+									message: 'Min length 6 symbols'
+								}
 							})}
 							type={showPassword ? 'text' : 'password'}
 							placeholder="Password"
-							className={`border p-3 rounded-xl focus:outline-blue-500 ${errors.password ? 'border-red-500' : 'border-gray-300'}`}
+							className={`w-full border p-3 pl-10 pr-10 rounded-xl focus:outline-blue-500 ${
+								errors.password ? 'border-red-500' : 'border-gray-300'
+							}`}
 						/>
+
 						<button
 							type="button"
 							onClick={() => setShowPassword(!showPassword)}
-							className="absolute right-167 top-48"
+							className="absolute right-104 top-3 text-gray-500"
 						>
-							{showPassword ? (
-								<AiOutlineEyeInvisible size={30} />
-							) : (
-								<AiOutlineEyeInvisible size={30} />
-							)}
+							<AiOutlineEyeInvisible size={30} />
 						</button>
-						{errors.password && (
-							<span className="text-red-500 text-sm">
-								{errors.password.message}
-							</span>
-						)}
 					</div>
 
-					<Link
-						to="/forgotten-password"
-						title="Восстановить пароль"
-						className="text-sm text-blue-600 hover:underline self-end"
-					>
-						Forgotten Password?
-					</Link>
+					{errors.password && (
+						<span className="text-red-500 text-sm">
+							{errors.password.message}
+						</span>
+					)}
 				</div>
 
+				{/* FORGOT PASSWORD */}
+				<Link
+					to="/forgotten-password"
+					className="text-sm text-blue-600 hover:underline self-end"
+				>
+					Forgot Password?
+				</Link>
+
+				{/* SUBMIT */}
 				<button
 					type="submit"
 					className="bg-blue-600 text-white py-3 rounded-xl font-semibold hover:bg-blue-700 transition-colors"
@@ -127,18 +128,20 @@ export default function LoginPages() {
 					Sign In
 				</button>
 
+				{/* DIVIDER */}
 				<div className="flex items-center gap-2">
-					<div className="w-full h-px bg-gray-400"></div>
-					<p className="text-gray-600">OR</p>
-					<div className="w-full h-px bg-gray-400"></div>
+					<div className="w-full h-px bg-gray-300"></div>
+					<p className="text-gray-500 text-sm">OR</p>
+					<div className="w-full h-px bg-gray-300"></div>
 				</div>
 
+				{/* SOCIAL */}
 				<div className="flex gap-4 justify-center items-center">
 					<button className="p-2 hover:bg-gray-100 rounded-full transition">
 						<img
 							src="./facebook.png"
 							alt="Facebook"
-							className="w-10 h-10"
+							className="w-9 h-9"
 						/>
 					</button>
 
@@ -146,12 +149,13 @@ export default function LoginPages() {
 						<img
 							src="./google.png"
 							alt="Google"
-							className="w-10 h-10"
+							className="w-9 h-9"
 						/>
 					</button>
 				</div>
 
-				<footer className="text-center pt-4">
+				{/* FOOTER */}
+				<footer className="text-center pt-4 text-sm">
 					<p>
 						New here?{' '}
 						<Link
