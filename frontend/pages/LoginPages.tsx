@@ -1,9 +1,11 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useForm, type SubmitHandler } from 'react-hook-form'
 import { AiOutlineEyeInvisible } from 'react-icons/ai'
 import { MdOutlineMailOutline } from 'react-icons/md'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import type { Inputs } from '../entities/user/types'
+import { useAuthState } from '../features/auth/state'
+import { login } from '../shared/api/axios'
 
 export default function LoginPages() {
 	const [showPassword, setShowPassword] = useState(false)
@@ -13,7 +15,29 @@ export default function LoginPages() {
 		formState: { errors }
 	} = useForm<Inputs>()
 
-	const onSubmit: SubmitHandler<Inputs> = data => console.log(data)
+	const navigate = useNavigate()
+
+	const setAuth = useAuthState(state => state.setAuth)
+
+	useEffect(() => {
+		const token = localStorage.getItem('token')
+
+		if (token) {
+			setAuth(true)
+		}
+	}, [])
+
+	const onSubmit: SubmitHandler<Inputs> = async data => {
+		try {
+			const response = await login(data.email, data.password)
+
+			console.log('SUCCESS', response)
+
+			navigate('/')
+		} catch (error) {
+			console.error('ERROR', error)
+		}
+	}
 
 	return (
 		// Центрируем форму на экране
@@ -37,14 +61,17 @@ export default function LoginPages() {
 							className={`border p-3 rounded-xl focus:outline-blue-500 ${errors.email ? 'border-red-500' : 'border-gray-300'}`}
 						/>
 
-						<button
-							type="submit"
-							className="absolute left-130 top-62.5"
-						>
+						<button>
 							{showPassword ? (
-								<MdOutlineMailOutline size={30} />
+								<MdOutlineMailOutline
+									className="absolute right-50 top-62"
+									size={30}
+								/>
 							) : (
-								<MdOutlineMailOutline size={30} />
+								<MdOutlineMailOutline
+									className="absolute right-50 top-62"
+									size={30}
+								/>
 							)}
 						</button>
 

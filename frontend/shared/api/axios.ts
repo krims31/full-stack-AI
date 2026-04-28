@@ -1,17 +1,10 @@
 import axios from 'axios'
+import { api } from './authApi'
 
 interface LoginResponse {
 	token: string
 	email: string
 }
-
-export const api = axios.create({
-	baseURL: 'http://localhost:5173',
-	headers: {
-		'Content-Type': 'application/json'
-	},
-	withCredentials: true
-})
 
 export async function login(
 	email: string,
