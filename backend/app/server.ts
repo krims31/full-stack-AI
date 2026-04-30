@@ -7,6 +7,8 @@ interface myToken extends jwt.JwtPayload {
 	id: number
 }
 
+const PORT = process.env.PORT || 5000
+
 const app = express()
 
 app.use(express.json())
@@ -28,7 +30,7 @@ app.get('/api/auth/me', (req: Request, res: Response) => {
 	const authHeader = req.headers.authorization
 
 	if (!authHeader) {
-		return res.status(401).json({ message: "No token"})
+		return res.status(401).json({ message: 'No token' })
 	}
 
 	const token = authHeader.split(' ')[1]
@@ -68,6 +70,6 @@ app.post('/api/auth/login', async (req: Request, res: Response) => {
 	})
 })
 
-app.listen(5000, () => {
+app.listen(PORT, () => {
 	console.log('Server is running on http://localhost:5000')
 })

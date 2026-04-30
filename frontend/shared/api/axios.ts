@@ -27,7 +27,6 @@ export async function login(
 	password: string
 ): Promise<LoginResponse> {
 	try {
-		// Use the instance created above
 		const { data } = await api.post<LoginResponse>('/auth/login', {
 			email,
 			password
