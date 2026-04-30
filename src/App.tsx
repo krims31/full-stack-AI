@@ -1,8 +1,9 @@
 import { BrowserRouter, Route, Routes } from 'react-router'
 import { ProtectedRoutes } from '../frontend/app/providers/routes/ProtectedRoutes'
-import useAuth from '../frontend/features/auth/useAuth'
+import useAuth from '../frontend/features/hooks/useAuth'
+import Ai from '../frontend/pages/Ai'
 import LoginPages from '../frontend/pages/LoginPages'
-import UserPanel from '../frontend/pages/UserPanel'
+import Sidebar from '../frontend/pages/widgets/sidebar/ui/Sidebar'
 import './App.css'
 
 function App() {
@@ -24,7 +25,8 @@ function App() {
 						path="/"
 						element={
 							<ProtectedRoutes>
-								<UserPanel />
+								<Ai />
+								<Sidebar />
 							</ProtectedRoutes>
 						}
 					/>

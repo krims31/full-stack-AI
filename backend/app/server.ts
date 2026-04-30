@@ -1,9 +1,9 @@
 import bcrypt from 'bcrypt'
 import cors from 'cors'
 import express, { type Request, type Response } from 'express'
-import jwt, { JwtPayload } from 'jsonwebtoken'
+import jwt from 'jsonwebtoken'
 
-interface myToken extends JwtPayload {
+interface myToken extends jwt.JwtPayload {
 	id: number
 }
 

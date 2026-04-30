@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { api } from '../../shared/api/authApi'
-import { useAuthState } from './state'
+import { useAuthState } from '../auth/state'
 
 export default function useAuth() {
 	const isAuth = useAuthState(state => state.isAuth)
