@@ -211,7 +211,7 @@ export default function Settings() {
 
 				<div>
 					<div>
-						<div className="w-200 h-0.5 absolute top-165 left-110 shadow-sm border-t bg-gray-300 border-white"></div>
+						<div className="w-200 h-0.5 absolute top-164 left-110 shadow-sm border-t bg-gray-300 border-white"></div>
 					</div>
 				</div>
 
