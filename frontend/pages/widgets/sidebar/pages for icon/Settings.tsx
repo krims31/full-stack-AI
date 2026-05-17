@@ -1,17 +1,7 @@
 import { PenLine } from 'lucide-react'
-import { useState } from 'react'
 import Sidebar from '../ui/Sidebar'
 
 export default function Settings() {
-	const [selectedValue, setSelectedValue] = useState<boolean | null>(false)
-
-	const handleClick = (value: boolean) => {
-		if (selectedValue === value) {
-			setSelectedValue(null)
-		} else {
-			setSelectedValue(value)
-		}
-	}
 	return (
 		<>
 			<div className="border rounded-xl w-200 h-180 relative top-20 left-110 placeholder:text-gray-600 transition-all border-black/10 shadow-lg hover:shadow-xl outline-0 text-black"></div>
