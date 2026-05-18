@@ -14,7 +14,6 @@ export default function PersonalInformation() {
 					Manage your information details, including username, birthdate, email,
 					and phone number, to ensure your <br /> account is up to date.{' '}
 				</p>{' '}
-				{/* Username */}{' '}
 				<h1 className="text-black flex justify-center absolute top-87 left-116">
 					{' '}
 					Username{' '}
@@ -31,7 +30,6 @@ export default function PersonalInformation() {
 						className="text-black"
 					/>{' '}
 				</button>{' '}
-				{/* Birthdate */}{' '}
 				<h1 className="text-black flex justify-center absolute top-87 left-205">
 					{' '}
 					Birthdate{' '}
@@ -48,7 +46,6 @@ export default function PersonalInformation() {
 						className="text-black"
 					/>{' '}
 				</button>{' '}
-				{/* Email */}{' '}
 				<h1 className="text-black flex justify-center absolute top-107 left-116">
 					{' '}
 					Email{' '}
@@ -65,7 +62,6 @@ export default function PersonalInformation() {
 						className="text-black"
 					/>{' '}
 				</button>{' '}
-				{/* Phone Number */}{' '}
 				<h1 className="text-black flex justify-center absolute top-107 left-205">
 					{' '}
 					Phone Number{' '}
