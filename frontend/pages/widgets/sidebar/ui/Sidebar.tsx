@@ -49,9 +49,13 @@ export default function Sidebar() {
 			{/* SIDEBAR */}
 			<aside
 				className={`
+					border rounded-2xl
+					w-15 h-208
+					transition-all duration-300
+					border-black/10 shadow-lg hover:shadow-xl
+					outline-0 bg-white
+					
 					fixed top-0 left-0 z-50
-
-					transition-transform duration-300
 
 					${isOpen ? 'translate-x-0' : '-translate-x-full'}
 
@@ -61,93 +65,76 @@ export default function Sidebar() {
 					2xl:left-0
 				`}
 			>
-				<div
-					className="
-						border rounded-2xl
-						w-15 h-screen
-						bg-white
-
-						border-black/10
-						shadow-lg hover:shadow-xl
-						outline-0
-
-						flex flex-col justify-between
-					"
+				{/* CLOSE BUTTON */}
+				<button
+					onClick={() => setIsOpen(false)}
+					className="absolute top-4 right-4 2xl:hidden"
 				>
-					{/* CLOSE BUTTON */}
-					<button
-						onClick={() => setIsOpen(false)}
-						className="absolute top-4 right-4 2xl:hidden"
-					>
-						<X size={22} />
-					</button>
+					<X size={22} />
+				</button>
 
-					{/* TOP */}
-					<div>
-						{/* LOGO */}
-						<img
-							src="./ai-icon-circle-png.webp"
-							alt="ai"
-							className="absolute top-3 left-2 w-10 h-10"
-						/>
+				{/* LOGO */}
+				<img
+					src="./ai-icon-circle-png.webp"
+					alt="ai"
+					className="absolute top-3 left-2 w-10 h-10"
+				/>
 
-						{/* TOP ICONS */}
-						<div className="flex flex-col items-center gap-4 mt-20 mr-1">
-							{[
-								{ icon: House, path: '/' },
-								{ icon: MessageCircle, path: '/chat' },
-								{ icon: History, path: '/history' },
-								{ icon: Bot, path: '/bot' },
-								{ icon: FolderClosed, path: '/folder' },
-								{ icon: GitBranch, path: '/git' },
-								{ icon: Database, path: '/database' }
-							].map(({ icon: Icon, path }, index) => (
-								<div
-									key={index}
-									onClick={() => {
-										navigate(path)
-										setIsOpen(false)
-									}}
-									className="
-										relative px-4 py-2 cursor-pointer group
-										before:absolute before:left-0 before:top-0 before:bottom-0 
-										before:w-1 before:bg-purple-500 
-										before:transform before:scale-y-0 before:transition-transform before:duration-300
-										hover:before:scale-y-100
-									"
-								>
-									<Icon className="text-gray-400 group-hover:text-purple-500 transition-colors" />
-								</div>
-							))}
+				{/* TOP ICONS */}
+				<div className="flex flex-col items-center gap-4 mt-20 mr-1">
+					{[
+						{ icon: House, path: '/' },
+						{ icon: MessageCircle, path: '/chat' },
+						{ icon: History, path: '/history' },
+						{ icon: Bot, path: '/bot' },
+						{ icon: FolderClosed, path: '/folder' },
+						{ icon: GitBranch, path: '/git' },
+						{ icon: Database, path: '/database' }
+					].map(({ icon: Icon, path }, index) => (
+						<div
+							key={index}
+							onClick={() => {
+								navigate(path)
+								setIsOpen(false)
+							}}
+							className="
+								relative px-4 py-2 cursor-pointer group
+								before:absolute before:left-0 before:top-0 before:bottom-0 
+								before:w-1 before:bg-purple-500 
+								before:transform before:scale-y-0 before:transition-transform before:duration-300
+								hover:before:scale-y-100
+							"
+						>
+							<Icon className="text-gray-400 group-hover:text-purple-500 transition-colors" />
 						</div>
-					</div>
+					))}
+				</div>
 
-					{/* BOTTOM */}
-					<div className="flex flex-col items-center gap-4 mb-6 mr-1">
-						{[
-							{ icon: Headphones, path: '/headphones' },
-							{ icon: Settings, path: '/settings' }
-						].map(({ icon: Icon, path }, index) => (
-							<div
-								key={index}
-								onClick={() => {
-									navigate(path)
-									setIsOpen(false)
-								}}
-								className="
-									relative px-4 py-2 cursor-pointer group
-									before:absolute before:left-0 before:top-0 before:bottom-0 
-									before:w-1 before:bg-purple-500 
-									before:transform before:scale-y-0 before:transition-transform before:duration-300
-									hover:before:scale-y-100
-								"
-							>
-								<Icon className="text-gray-400 group-hover:text-purple-500 transition-colors" />
-							</div>
-						))}
+				{/* BOTTOM ICONS */}
+				<div className="flex flex-col items-center mt-60 gap-4 mr-1">
+					{[
+						{ icon: Headphones, path: '/headphones' },
+						{ icon: Settings, path: '/settings' }
+					].map(({ icon: Icon, path }, index) => (
+						<div
+							key={index}
+							onClick={() => {
+								navigate(path)
+								setIsOpen(false)
+							}}
+							className="
+								relative px-4 py-2 cursor-pointer group
+								before:absolute before:left-0 before:top-0 before:bottom-0 
+								before:w-1 before:bg-purple-500 
+								before:transform before:scale-y-0 before:transition-transform before:duration-300
+								hover:before:scale-y-100
+							"
+						>
+							<Icon className="text-gray-400 group-hover:text-purple-500 transition-colors" />
+						</div>
+					))}
 
-						<UserMenu />
-					</div>
+					<UserMenu />
 				</div>
 			</aside>
 		</>

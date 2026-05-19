@@ -34,7 +34,7 @@ export default function FooterAI() {
 					src="./ai-black.png"
 					alt="ai-black"
 					className="2xl:-mt-75 2xl:ml-94 2xl:w-4 xl:w-4 xl:-mt-75 xl:ml-74
-						firefox:opacity-80"
+						firefox:opacity-80 max-sm:-mt-176 max-sm:ml-2 max-sm:w-4"
 				/>
 		</>
 	)

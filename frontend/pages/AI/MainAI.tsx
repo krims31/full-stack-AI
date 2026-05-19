@@ -51,7 +51,7 @@ export default function MainAI() {
 						border-black/10 shadow-lg hover:shadow-xl 
 						flex items-center gap-1 text-black
 						hover:scale-105 active:scale-95
-						xl:ml-75 2xl:ml-95 lg:ml-50 max-[1280px]:ml-40"
+						xl:ml-75 2xl:ml-95 lg:ml-50 max-[1280px]:ml-40 max-sm:ml-5"
 				>
 					<Paperclip size={15} />
 					Attach
@@ -61,13 +61,13 @@ export default function MainAI() {
 				<div className="flex flex-wrap justify-center items-center gap-4 -mt-8">
 					<select
 						className="border rounded-md px-3 py-1 xl:px-3 transition-shadow 
-							border-black/10 shadow-lg hover:shadow-xl mr-50 2xl:ml-30 text-black"
+							border-black/10 shadow-lg hover:shadow-xl mr-50 2xl:ml-30 max-sm:ml-55 text-black max-sm:opacity-0"
 					>
 						<option>Writing Styles</option>
 					</select>
 
 					{/* Toggle Switch - улучшен для Firefox */}
-					<label className="flex items-center gap-2 cursor-pointer">
+					<label className="flex items-center gap-2 cursor-pointer max-sm:ml-50 max-sm:-mt-15">
 						<input
 							type="checkbox"
 							className="sr-only peer"
@@ -92,7 +92,7 @@ export default function MainAI() {
 									`}
 							/>
 						</div>
-						<span className="text-sm">Citation</span>
+						<span className="text-sm max-sm:opacity-0">Citation</span>
 					</label>
 				</div>
 
@@ -102,7 +102,7 @@ export default function MainAI() {
 					className="bg-black text-white w-8 h-8 rounded-md mt-4 
 							hover:scale-110 active:scale-90 transition-transform
 							2xl:ml-155 2xl:-mt-7 xl:ml-150 xl:-mt-7
-							firefox:active:translate-y-0.5"
+							firefox:active:translate-y-0.5 max-sm:ml-65 max-sm:-mt-11"
 				>
 					↑
 				</button>
