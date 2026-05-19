@@ -6,7 +6,7 @@ export default function AccountSection() {
 			{/* Account */}
 			<div>
 				<h1 className="flex justify-center items-center text-lg text-black absolute top-130 left-116">
-					Account
+					Accountы
 				</h1>
 				<p className="flex justify-center items-center text-gray-600 absolute top-137 left-116">
 					Update your password and select your preferred language for a

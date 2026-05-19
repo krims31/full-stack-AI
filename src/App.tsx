@@ -11,7 +11,7 @@ import Chat from '../frontend/pages/widgets/sidebar/pages for icon/Chat'
 import Database from '../frontend/pages/widgets/sidebar/pages for icon/DataBase'
 import Folder from '../frontend/pages/widgets/sidebar/pages for icon/Folder'
 import Git from '../frontend/pages/widgets/sidebar/pages for icon/Git'
-import Headphones from '../frontend/pages/widgets/sidebar/pages for icon/Headphones'
+import Support from '../frontend/pages/Support/Support'
 import History from '../frontend/pages/widgets/sidebar/pages for icon/History'
 import Sidebar from '../frontend/pages/widgets/sidebar/ui/Sidebar'
 import './App.css'
@@ -101,7 +101,7 @@ function App() {
 							path="/headphones"
 							element={
 								<ProtectedRoutes>
-									<Headphones />
+									<Support />
 								</ProtectedRoutes>
 							}
 						/>

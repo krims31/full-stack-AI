@@ -1,4 +1,4 @@
-import Sidebar from '../ui/Sidebar'
+import Sidebar from '../widgets/sidebar/ui/Sidebar'
 export default function Headphones() {
 	return (
 		<>
