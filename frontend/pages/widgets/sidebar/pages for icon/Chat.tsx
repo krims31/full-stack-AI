@@ -24,7 +24,7 @@ export default function Chat() {
 				<div className="flex items-center gap-4">
 					<select
 						className="border rounded-md px-6 relative left-30 py-1 transition-shadow
-             border-black/10 shadow-lg hover:shadow-xl outline-0"
+             border-black/10 shadow-lg hover:shadow-xl outline-0 max-sm:-ml-32 max-sm:mt-12 max-sm:w-35"
 					>
 						<option>ChatGPT 4o</option>
 						<option>Claude Code</option>
@@ -36,22 +36,22 @@ export default function Chat() {
 					<img
 						src="./ai.png"
 						alt="ai"
-						className="w-4 max-[1280px]:ml-0 xl:-ml-10"
+						className="w-4 max-[1280px]:ml-0 xl:-ml-10 max-sm:mt-12 max-sm:-ml-8"
 					/>
 				</div>
 
 				<div className="flex items-center gap-2 xl:gap-3">
-					<button className="flex items-center gap-2 border rounded-md px-2 xl:px-3 py-1 transition-all border-black/10 shadow-lg hover:shadow-xl hover:scale-105 active:scale-95">
+					<button className="flex items-center gap-2 border rounded-md px-2 xl:px-3 py-1 transition-all border-black/10 shadow-lg hover:shadow-xl hover:scale-105 active:scale-95 max-sm:mt-12 max-sm:relative max-sm:left-4">
 						<Search size={16} />
 						<span className="hidden xl:inline">Search thread</span>
 					</button>
 
-					<button className="flex items-center gap-2 border rounded-md px-2 xl:px-3 py-1 transition-all border-black/10 shadow-lg hover:shadow-xl hover:scale-105 active:scale-95">
+					<button className="flex items-center gap-2 border rounded-md px-2 xl:px-3 py-1 transition-all border-black/10 shadow-lg max-sm:mt-12 max-sm:relative max-sm:left-4 hover:shadow-xl hover:scale-105 active:scale-95">
 						<UserRoundPlus size={16} />
 						<span className="hidden xl:inline">Invite</span>
 					</button>
 
-					<button className="flex items-center gap-2 bg-black text-white rounded-md px-2 xl:px-3 py-1 transition-all shadow-lg hover:shadow-xl hover:scale-105 active:scale-95">
+					<button className="flex items-center gap-2 bg-black text-white rounded-md px-2 xl:px-3 py-1 transition-all shadow-lg hover:shadow-xl hover:scale-105 active:scale-95 max-sm:relative max-sm:left-3 max-sm:w-30 max-sm:h-8 max-sm:mt-11">
 						<Plus size={16} />
 						<span>New Thread</span>
 					</button>
@@ -95,22 +95,22 @@ export default function Chat() {
 							className="w-full max-w-2xl h-32 px-8 pt-1 pb-20 border rounded-2xl placeholder:text-gray-600 transition-shadow border-black/10 shadow-lg hover:shadow-xl outline-0 text-black focus:ring-2 focus:ring-purple-500 focus:border-transparent
 							firefox:focus:ring-purple-400
 							firefox:placeholder:opacity-60 
-							webkit:autofill:bg-yellow-50"
+							webkit:autofill:bg-yellow-50 max-sm:w-85"
 							placeholder="Ask AI a question or make a request..."
 							disabled={isLoading}
 						/>
 
-						<button className="relative -mt-12 mr-auto border rounded-md px-2 xl:px-3 py-1 transition-shadow border-black/10 shadow-lg hover:shadow-xl xl:ml-75 2xl:ml-120 lg:ml-50 flex items-center gap-1 text-black max-[1280px]:ml-40">
+						<button className="relative -mt-12 mr-auto border rounded-md px-2 xl:px-3 py-1 transition-shadow border-black/10 shadow-lg hover:shadow-xl xl:ml-75 2xl:ml-120 lg:ml-50 flex items-center gap-1 text-black max-[1280px]:ml-40 max-sm:-ml-3">
 							<Paperclip size={15} />
 							Attach
 						</button>
 
 						<div className="flex flex-wrap justify-center items-center gap-4 -mt-8">
-							<select className="border rounded-md px-3 py-1 xl:px-3 transition-shadow border-black/10 shadow-lg hover:shadow-xl mr-50 2xl:ml-10 text-black">
+							<select className="border rounded-md px-3 py-1 xl:px-3 transition-shadow border-black/10 shadow-lg hover:shadow-xl mr-50 2xl:ml-10 text-black max-sm:ml-50">
 								<option>Writing Styles</option>
 							</select>
 
-							<label className="flex items-center gap-2 cursor-pointer">
+							<label className="flex items-center gap-2 cursor-pointer max-sm:-mt-15 max-sm:ml-60">
 								<input
 									type="checkbox"
 									className="sr-only"
@@ -129,7 +129,9 @@ export default function Chat() {
 									/>
 								</div>
 
-								<span className="text-sm text-gray-500">Citation</span>
+								<span className="text-sm text-gray-500 max-sm:opacity-0">
+									Citation
+								</span>
 							</label>
 						</div>
 						<button
@@ -137,14 +139,14 @@ export default function Chat() {
 							disabled={!text.trim() || isLoading}
 							className="bg-black text-white w-8 h-8 rounded-md 
 							hover:scale-110 active:scale-90 transition-transform
-							firefox:active:translate-y-0.5 mt-4 2xl:ml-155 2xl:-mt-7 xl:ml-150 xl:-mt-7"
+							firefox:active:translate-y-0.5 mt-4 2xl:ml-155 2xl:-mt-7 xl:ml-150 xl:-mt-7 max-sm:ml-70 max-sm:-mt-12"
 						>
 							↑
 						</button>
 						<img
 							src="./ai-black.png"
 							alt="ai-black"
-							className="2xl:-mt-24 2xl:-ml-159 2xl:w-4 xl:w-4 xl:-mt-75 xl:ml-74"
+							className="2xl:-mt-24 2xl:-ml-159 2xl:w-4 xl:w-4 xl:-mt-75 xl:ml-74 max-sm:-ml-76 max-sm:-mt-23 max-sm:w-4"
 						/>
 					</div>
 				</div>
