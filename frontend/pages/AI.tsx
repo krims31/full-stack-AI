@@ -6,7 +6,9 @@ export default function Ai() {
 	return (
 		<div className="min-h-screen max-w-360 mx-auto px-4  firefox:overflow-x-hidden">
 			{/* HEADER */}
-			<HeaderAI />
+			<header>
+				<HeaderAI />
+			</header>
 
 			{/* MAIN */}
 			<main className="relative flex flex-col items-center text-center mt-20">
