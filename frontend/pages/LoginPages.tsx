@@ -1,7 +1,7 @@
 import axios from 'axios'
 import { useState } from 'react'
 import { useForm, type SubmitHandler } from 'react-hook-form'
-import { AiOutlineEyeInvisible } from 'react-icons/ai'
+import { AiOutlineEye, AiOutlineEyeInvisible } from 'react-icons/ai'
 import { MdOutlineMailOutline } from 'react-icons/md'
 import { Link, useNavigate } from 'react-router-dom'
 import type { Inputs } from '../entities/user/types'
@@ -80,7 +80,7 @@ export default function LoginPages() {
 						/>
 
 						<MdOutlineMailOutline
-							className="absolute left-2 top-3 text-gray-400"
+							className="absolute left-2 top-3 text-white"
 							size={30}
 						/>
 					</div>
@@ -113,9 +113,13 @@ export default function LoginPages() {
 						<button
 							type="button"
 							onClick={() => setShowPassword(!showPassword)}
-							className="absolute right-104 top-3 text-gray-500"
+							className="absolute right-103 top-3 text-white"
 						>
-							<AiOutlineEyeInvisible size={30} />
+							{showPassword ? (
+								<AiOutlineEye size={30} />
+							) : (
+								<AiOutlineEyeInvisible size={30} />
+							)}
 						</button>
 					</div>
 
