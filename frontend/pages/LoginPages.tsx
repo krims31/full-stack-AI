@@ -157,8 +157,8 @@ export default function LoginPages() {
 				<div className="flex gap-4 justify-center items-center">
 					<button className="p-2 hover:bg-gray-100 rounded-full transition">
 						<img
-							src="./facebook.png"
-							alt="Facebook"
+							src="./meta-6871457_1280.webp"
+							alt="Meta"
 							className="w-9 h-9"
 						/>
 					</button>
