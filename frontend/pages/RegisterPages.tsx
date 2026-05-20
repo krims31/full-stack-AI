@@ -38,14 +38,18 @@ export default function RegisterPages() {
 	}
 
 	return (
-		<div className="min-h-screen flex items-center justify-center bg-gray-50 px-4 sm:px-6 lg:px-8">
+		<div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-[#0f0f14] via-[#151521] to-[#1d1135] px-4 sm:px-6 lg:px-8">
+			<div className="absolute w-72 h-72 bg-purple-500/30 rounded-full blur-3xl top-10 left-10"></div>
+
+			<div className="absolute w-72 h-72 bg-blue-500/20 rounded-full blur-3xl bottom-10 right-10"></div>
+
 			<form
 				onSubmit={handleSubmit(onSubmit)}
-				className="w-full max-w-md sm:max-w-lg bg-white p-6 sm:p-8 rounded-2xl shadow-lg flex flex-col gap-6"
+				className="w-full max-w-md sm:max-w-lg bg-white/10 backdrop-blur-xl border border-white/10 p-6 sm:p-8 rounded-2xl shadow-lg flex flex-col gap-6"
 			>
 				{/* TITLE */}
 				<header className="text-center">
-					<h1 className="text-3xl sm:text-4xl font-bold text-gray-800">
+					<h1 className="text-3xl sm:text-4xl font-bold text-white">
 						Create an Account?
 					</h1>
 				</header>
@@ -59,12 +63,14 @@ export default function RegisterPages() {
 							})}
 							placeholder="Username"
 							className={`w-full border p-3 pl-10 rounded-xl text-black focus:outline-blue-500 ${
-								errors.username ? 'border-red-500' : 'border-gray-300'
+								errors.username
+									? 'border-red-500'
+									: 'bg-white/5 border-white/10 text-white placeholder:text-gray-400 focus:ring-2 focus:ring-purple-500'
 							}`}
 						/>
 
 						<UserCheck
-							className="absolute left-2 top-3 text-gray-400"
+							className="absolute left-2 top-3 text-white"
 							size={30}
 						/>
 					</div>
@@ -85,12 +91,14 @@ export default function RegisterPages() {
 							})}
 							placeholder="Email"
 							className={`w-full border p-3 pl-10 rounded-xl text-black focus:outline-blue-500 ${
-								errors.email ? 'border-red-500' : 'border-gray-300'
+								errors.email
+									? 'border-red-500'
+									: 'bg-white/5 border-white/10 text-white placeholder:text-gray-400 focus:ring-2 focus:ring-purple-500'
 							}`}
 						/>
 
 						<MdOutlineMailOutline
-							className="absolute left-2 top-3 text-gray-400"
+							className="absolute left-2 top-3 text-white"
 							size={30}
 						/>
 					</div>
@@ -114,14 +122,16 @@ export default function RegisterPages() {
 							type={showPassword ? 'text' : 'password'}
 							placeholder="Password"
 							className={`w-full border p-3 pl-10 pr-10 rounded-xl text-black focus:outline-blue-500 ${
-								errors.password ? 'border-red-500' : 'border-gray-300'
+								errors.password
+									? 'border-red-500'
+									: 'bg-white/5 border-white/10 text-white placeholder:text-gray-400 focus:ring-2 focus:ring-purple-500'
 							}`}
 						/>
 
 						<button
 							type="button"
 							onClick={() => setShowPassword(!showPassword)}
-							className="absolute right-104 top-3 text-gray-500"
+							className="relative -top-9 left-2 text-white"
 						>
 							<AiOutlineEyeInvisible size={30} />
 						</button>
@@ -137,9 +147,9 @@ export default function RegisterPages() {
 				<div>
 					<input
 						type="checkbox"
-						className="absolute top-112.5"
+						className="relative -top-3 z-10"
 					/>
-					<span className="absolute top-111 left-160">
+					<span className="relative -top-3 left-3 text-white">
 						I agree to the{' '}
 						<Link
 							to="/"
@@ -153,7 +163,7 @@ export default function RegisterPages() {
 				{/* SUBMIT */}
 				<button
 					type="submit"
-					className="bg-blue-600 text-white py-3 rounded-xl font-semibold hover:bg-blue-700 transition-colors relative top-5"
+					className="bg-gradient-to-r from-purple-500 to-violet-700 text-white py-3 rounded-xl font-semibold hover:bg-blue-700 transition-colors relative top-5"
 				>
 					Create account
 				</button>
