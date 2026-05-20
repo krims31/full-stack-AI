@@ -35,10 +35,10 @@ export default function LoginPages() {
 			localStorage.setItem('token', response.data.token)
 
 			if (response.data.token) {
-				localStorage.setItem('token', response.data.token);
-				console.log("Token saved!")
+				localStorage.setItem('token', response.data.token)
+				console.log('Token saved!')
 			} else {
-				console.log("Token not saved!")
+				console.log('Token not saved!')
 			}
 
 			setAuth(true)
@@ -50,16 +50,18 @@ export default function LoginPages() {
 	}
 
 	return (
-		<div className="min-h-screen flex items-center justify-center bg-gray-50 px-4 sm:px-6 lg:px-8">
+		<div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-[#0f0f14] via-[#151521] to-[#1d1135] px-4 sm:px-6 lg:px-8">
+			<div className="absolute w-72 h-72 bg-purple-500/30 rounded-full blur-3xl top-10 left-10"></div>
+
+			<div className="absolute w-72 h-72 bg-blue-500/20 rounded-full blur-3xl bottom-10 right-10"></div>
+
 			<form
 				onSubmit={handleSubmit(onSubmit)}
-				className="w-full max-w-md sm:max-w-lg bg-white p-6 sm:p-8 rounded-2xl shadow-lg flex flex-col gap-6"
+				className="w-full max-w-md sm:max-w-lg bg-white/10 backdrop-blur-xl border border-white/10 p-6 sm:p-8 rounded-2xl shadow-lg flex flex-col gap-6"
 			>
 				{/* TITLE */}
 				<header className="text-center">
-					<h1 className="text-3xl sm:text-4xl font-bold text-gray-800">
-						Sign In
-					</h1>
+					<h1 className="text-3xl sm:text-4xl font-bold text-white">Sign In</h1>
 				</header>
 
 				{/* EMAIL */}
@@ -71,7 +73,9 @@ export default function LoginPages() {
 							})}
 							placeholder="Email"
 							className={`w-full border p-3 pl-10 text-black rounded-xl focus:outline-blue-500 ${
-								errors.email ? 'border-red-500' : 'border-gray-300'
+								errors.email
+									? 'border-red-500'
+									: 'bg-white/5 border-white/10 text-white placeholder:text-gray-400 focus:ring-2 focus:ring-purple-500'
 							}`}
 						/>
 
@@ -100,7 +104,9 @@ export default function LoginPages() {
 							type={showPassword ? 'text' : 'password'}
 							placeholder="Password"
 							className={`w-full border p-3 pl-10 pr-10 text-black rounded-xl focus:outline-blue-500 ${
-								errors.password ? 'border-red-500' : 'border-gray-300'
+								errors.password
+									? 'border-red-500'
+									: 'bg-white/5 border-white/10 text-white placeholder:text-gray-400 focus:ring-2 focus:ring-purple-500'
 							}`}
 						/>
 
@@ -131,7 +137,7 @@ export default function LoginPages() {
 				{/* SUBMIT */}
 				<button
 					type="submit"
-					className="bg-blue-600 text-white py-3 rounded-xl font-semibold hover:bg-blue-700 transition-colors"
+					className="bg-gradient-to-r from-purple-500 to-violet-700 text-white py-3 rounded-xl font-semibold hover:bg-blue-700 transition-colors"
 				>
 					Sign In
 				</button>
