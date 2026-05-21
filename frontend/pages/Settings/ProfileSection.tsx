@@ -19,14 +19,8 @@ export default function ProfileSection() {
 					alt=""
 					className="w-10 rounded-2xl flex justify-center items-center absolute top-46 left-116"
 				/>{' '}
-				<p className="flex justify-center items-center text-black absolute top-45 left-130">
-					{' '}
-					John Daves{' '}
-				</p>{' '}
-				<p className="flex justify-center items-center text-sm text-gray-600 absolute top-50 left-130">
-					{' '}
-					Frontend Developer{' '}
-				</p>{' '}
+				<input className="flex justify-center items-center text-black absolute top-45 left-130" />{' '}
+				<input className="flex justify-center items-center text-sm text-gray-600 absolute top-50 left-130" />{' '}
 				<button className="flex justify-center items-center bg-gray-200 w-7 h-7 border rounded-lg absolute top-47 left-295 transition-all border-black/10 shadow-lg hover:shadow-xl outline-0 cursor-pointer duration-300 hover:scale-105 active:scale-95">
 					{' '}
 					<PenLine
