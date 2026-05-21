@@ -1,3 +1,4 @@
+import { Loader2 } from 'lucide-react'
 import React from 'react'
 import { Navigate } from 'react-router-dom'
 import { useAuthState } from '../../../features/auth/state'
@@ -12,7 +13,8 @@ export const ProtectedRoutes = ({ children }: Props) => {
 	if (isLoading) {
 		return (
 			<div className="flex items-center justify-center absolute top-90 left-180 text-5xl font-mono text-black">
-				Loading...
+				<Loader2 className="w-12 h-12 right-5 relative animate-spin text-black" />
+				<span>Loading...</span>
 			</div>
 		)
 	}
