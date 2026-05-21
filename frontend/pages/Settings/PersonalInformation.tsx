@@ -21,7 +21,10 @@ export default function PersonalInformation() {
 				<input
 					type="text"
 					placeholder="Username"
-					className="flex justify-center absolute top-94 left-116 border rounded-md w-70 h-7 transition-all border-black/10 shadow-lg hover:shadow-xl outline-0 pl-2 text-black placeholder:text-gray-600"
+					className="flex justify-center absolute top-94 left-116 border rounded-md w-70 h-7 transition-all border-black/10 shadow-lg hover:shadow-xl outline-0 pl-2 text-black placeholder:text-gray-600 focus:ring-2 focus:ring-purple-500 focus:border-transparent
+					firefox:focus:ring-purple-400
+					firefox:placeholder:opacity-60
+					webkit:autofill:bg-yellow-50"
 				/>{' '}
 				<button className="flex justify-center items-center bg-gray-200 w-7 h-7 border rounded-lg absolute top-94 left-190 transition-all border-black/10 shadow-lg hover:shadow-xl outline-0 cursor-pointer duration-300 hover:scale-105 active:scale-95">
 					{' '}
@@ -37,7 +40,10 @@ export default function PersonalInformation() {
 				<input
 					type="date"
 					placeholder=""
-					className="flex justify-center absolute top-94 left-205 border rounded-md w-90 h-7 transition-all border-black/10 shadow-lg hover:shadow-xl outline-0 pl-2 text-black placeholder:text-gray-600"
+					className="flex justify-center absolute top-94 left-205 border rounded-md w-90 h-7 transition-all border-black/10 shadow-lg hover:shadow-xl outline-0 pl-2 text-black placeholder:text-gray-600 focus:ring-2 focus:ring-purple-500 focus:border-transparent
+					firefox:focus:ring-purple-400
+					firefox:placeholder:opacity-60
+					webkit:autofill:bg-yellow-50"
 				/>{' '}
 				<button className="flex justify-center items-center bg-gray-200 w-7 h-7 border rounded-lg absolute top-94 left-298 transition-all border-black/10 shadow-lg hover:shadow-xl outline-0 cursor-pointer duration-300 hover:scale-105 active:scale-95">
 					{' '}
@@ -53,7 +59,10 @@ export default function PersonalInformation() {
 				<input
 					type="email"
 					placeholder="Email"
-					className="flex justify-center absolute top-114 left-116 border rounded-md w-70 h-7 transition-all border-black/10 shadow-lg hover:shadow-xl outline-0 pl-2 text-black placeholder:text-gray-600"
+					className="flex justify-center absolute top-114 left-116 border rounded-md w-70 h-7 transition-all border-black/10 shadow-lg hover:shadow-xl outline-0 pl-2 text-black placeholder:text-gray-600 focus:ring-2 focus:ring-purple-500 focus:border-transparent
+					firefox:focus:ring-purple-400
+					firefox:placeholder:opacity-60
+					webkit:autofill:bg-yellow-50"
 				/>{' '}
 				<button className="flex justify-center items-center bg-gray-200 w-7 h-7 border rounded-lg absolute top-114 left-190 transition-all border-black/10 shadow-lg hover:shadow-xl outline-0 cursor-pointer duration-300 hover:scale-105 active:scale-95">
 					{' '}
@@ -70,7 +79,10 @@ export default function PersonalInformation() {
 					type="tel"
 					inputMode="numeric"
 					placeholder="+7 (999) 000-00-00"
-					className="flex justify-center absolute top-114 left-205 border rounded-md w-90 h-7 transition-all border-black/10 shadow-lg hover:shadow-xl outline-0 pl-2 text-black placeholder:text-gray-600"
+					className="flex justify-center absolute top-114 left-205 border rounded-md w-90 h-7 transition-all border-black/10 shadow-lg hover:shadow-xl outline-0 pl-2 text-black placeholder:text-gray-600 focus:ring-2 focus:ring-purple-500 focus:border-transparent
+					firefox:focus:ring-purple-400
+					firefox:placeholder:opacity-60
+					webkit:autofill:bg-yellow-50"
 				/>{' '}
 				<button className="flex justify-center items-center bg-gray-200 w-7 h-7 border rounded-lg absolute top-114 left-298 transition-all border-black/10 shadow-lg hover:shadow-xl outline-0 cursor-pointer duration-300 hover:scale-105 active:scale-95">
 					{' '}
