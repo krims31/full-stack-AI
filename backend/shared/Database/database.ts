@@ -2,9 +2,13 @@ import { Pool } from 'pg'
 
 const databaseUrl = process.env.DATABASE_URL
 
-if (databaseUrl) {
-	console.error('DATABASE_URL is not easy to use')
-	process.exit(1)
+try {
+	if (databaseUrl) {
+		console.error('DATABASE_URL is not easy to use')
+		process.exit(1)
+	}
+} catch (error) {
+	console.log('Error', error)
 }
 
 export const pool = new Pool({
@@ -16,7 +20,7 @@ export const pool = new Pool({
 })
 
 export async function initDB() {
-	try  {
+	try {
 		await pool.query(`
 				CREATE TABLE IF NOT EXISTS users (
 					id SERIAL PRIMARY KEY,
@@ -26,9 +30,9 @@ export async function initDB() {
 					created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 				)
 			`)
-			console.log("Database initialized succussfully!")
+		console.log('Database initialized succussfully!')
 	} catch (error) {
-		console.error("Error inititalizing database:", error)
-		throw error;
+		console.error('Error inititalizing database:', error)
+		throw error
 	}
 }
