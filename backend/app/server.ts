@@ -4,21 +4,12 @@ import dotenv from 'dotenv'
 import express, { type Request, type Response } from 'express'
 import jwt from 'jsonwebtoken'
 import OpenAI from 'openai'
+import { myToken } from '../interface/token'
+import { User } from '../interface/user'
 import { userStorage } from '../shared/Database/userStorage'
+import { openrouter } from '../shared/utils/config/openrouter'
 
 dotenv.config()
-
-interface myToken extends jwt.JwtPayload {
-	id: number
-}
-
-interface User {
-	id: number
-	email: string
-	username: string
-	password: string
-	createdAt: string
-}
 
 const excludePassword = <T extends { password: string }>(
 	obj: T
@@ -44,15 +35,6 @@ app.use(
 )
 
 app.use(express.json())
-
-const openrouter = new OpenAI({
-	baseURL: 'https://openrouter.ai/api/v1',
-	apiKey: process.env.OPENROUTER_API_KEY,
-	defaultHeaders: {
-		'HTTP-Referer': 'https://localhost:5173',
-		'X-Title': 'My AI chat app'
-	}
-})
 
 app.get('/api/test', (req: Request, res: Response) => {
 	res.json({ message: 'Server is working!' })
