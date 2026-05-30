@@ -47,11 +47,17 @@ export default function ForgotPassword() {
 			<footer>
 				<div className="border rounded-2xl w-20 h-3 relative top-60 left-150 hover:bg-blue-500 bg-gray-200 placeholder:text-gray-600 transition-all border-black/10 shadow-lg hover:shadow-xl outline-0 z-10"></div>
 
-				<div className="border rounded-2xl w-20 h-3 relative top-57 left-175 hover:bg-blue-500 bg-gray-200 placeholder:text-gray-600 transition-all border-black/10 shadow-lg hover:shadow-xl outline-0 z-10"></div>
+				<Link to="/password-reset">
+					<div className="border rounded-2xl w-20 h-3 relative top-57 left-175 hover:bg-blue-500 bg-gray-200 placeholder:text-gray-600 transition-all border-black/10 shadow-lg hover:shadow-xl outline-0 z-10"></div>
+				</Link>
 
-				<div className="border rounded-2xl w-20 h-3 relative top-54 left-200 hover:bg-blue-500 bg-gray-200 placeholder:text-gray-600 transition-all border-black/10 shadow-lg hover:shadow-xl outline-0 z-10"></div>
+				<Link to="/set-new-password">
+					<div className="border rounded-2xl w-20 h-3 relative top-54 left-200 hover:bg-blue-500 bg-gray-200 placeholder:text-gray-600 transition-all border-black/10 shadow-lg hover:shadow-xl outline-0 z-10"></div>
+				</Link>
 
-				<div className="border rounded-2xl w-20 h-3 relative top-51 left-225 hover:bg-blue-500 bg-gray-200 placeholder:text-gray-600 transition-all border-black/10 shadow-lg hover:shadow-xl outline-0 z-10"></div>
+				<Link to="/all-done">
+					<div className="border rounded-2xl w-20 h-3 relative top-51 left-225 hover:bg-blue-500 bg-gray-200 placeholder:text-gray-600 transition-all border-black/10 shadow-lg hover:shadow-xl outline-0 z-10"></div>
+				</Link>
 			</footer>
 		</>
 	)

@@ -3,6 +3,10 @@ import { ProtectedRoutes } from '../frontend/app/providers/routes/ProtectedRoute
 import { ThemeProvider } from '../frontend/app/providers/ThemeProvider'
 import useAuth from '../frontend/features/hooks/useAuth'
 import Ai from '../frontend/pages/AI'
+import AllDone from '../frontend/pages/ForgotPassword/AllDone/AllDone'
+import ForgotPassword from '../frontend/pages/ForgotPassword/ForgotPassword'
+import PasswordReset from '../frontend/pages/ForgotPassword/PasswordReset/PasswordReset'
+import SetNewPassword from '../frontend/pages/ForgotPassword/SetNewPassword/SetNewPassword'
 import LoginPages from '../frontend/pages/LoginPages'
 import RegisterPages from '../frontend/pages/RegisterPages'
 import Settings from '../frontend/pages/Settings/Settings'
@@ -14,7 +18,6 @@ import Folder from '../frontend/pages/widgets/sidebar/pages for icon/Folder'
 import Git from '../frontend/pages/widgets/sidebar/pages for icon/Git'
 import History from '../frontend/pages/widgets/sidebar/pages for icon/History'
 import Sidebar from '../frontend/pages/widgets/sidebar/ui/Sidebar'
-import ForgotPassword from '../frontend/pages/ForgotPassword/ForgotPassword'
 import './App.css'
 
 function App() {
@@ -34,7 +37,23 @@ function App() {
 							path="/register"
 							element={<RegisterPages />}
 						/>
-						<Route path='/forgotten-password' element={<ForgotPassword />}/>
+						<Route
+							path="/forgotten-password"
+							element={<ForgotPassword />}
+						/>
+						<Route
+							path="/password-reset"
+							element={<PasswordReset />}
+						/>
+						<Route
+							path="/set-new-password"
+							element={<SetNewPassword />}
+						/>
+
+						<Route
+							path="/all-done"
+							element={<AllDone />}
+						/>
 						<Route
 							path="/"
 							element={
