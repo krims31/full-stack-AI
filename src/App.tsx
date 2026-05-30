@@ -6,14 +6,15 @@ import Ai from '../frontend/pages/AI'
 import LoginPages from '../frontend/pages/LoginPages'
 import RegisterPages from '../frontend/pages/RegisterPages'
 import Settings from '../frontend/pages/Settings/Settings'
+import Support from '../frontend/pages/Support/Support'
 import Bot from '../frontend/pages/widgets/sidebar/pages for icon/Bot'
 import Chat from '../frontend/pages/widgets/sidebar/pages for icon/Chat'
 import Database from '../frontend/pages/widgets/sidebar/pages for icon/DataBase'
 import Folder from '../frontend/pages/widgets/sidebar/pages for icon/Folder'
 import Git from '../frontend/pages/widgets/sidebar/pages for icon/Git'
-import Support from '../frontend/pages/Support/Support'
 import History from '../frontend/pages/widgets/sidebar/pages for icon/History'
 import Sidebar from '../frontend/pages/widgets/sidebar/ui/Sidebar'
+import ForgotPassword from '../frontend/pages/ForgotPassword/ForgotPassword'
 import './App.css'
 
 function App() {
@@ -33,6 +34,7 @@ function App() {
 							path="/register"
 							element={<RegisterPages />}
 						/>
+						<Route path='/forgotten-password' element={<ForgotPassword />}/>
 						<Route
 							path="/"
 							element={
