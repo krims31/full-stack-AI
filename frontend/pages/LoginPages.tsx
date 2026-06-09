@@ -141,7 +141,7 @@ export default function LoginPages() {
 				{/* SUBMIT */}
 				<button
 					type="submit"
-					className="bg-gradient-to-r from-purple-500 to-violet-700 text-white py-3 rounded-xl font-semibold hover:bg-blue-700 transition-colors"
+					className="bg-linear-to-r from-purple-500 to-violet-700 text-white py-3 rounded-xl font-semibold hover:bg-blue-700 transition-colors"
 				>
 					Sign In
 				</button>
