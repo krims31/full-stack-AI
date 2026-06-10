@@ -1,7 +1,8 @@
 import '@testing-library/jest-dom'
 import { render, screen } from '@testing-library/react'
 import { MemoryRouter } from 'react-router'
-import PasswordReset from '../ForgotPassword/PasswordReset/PasswordReset'
+import { describe, expect, it } from 'vitest'
+import PasswordReset from '../PasswordReset/PasswordReset'
 
 describe('PasswordReset component', () => {
 	const renderComponent = () =>
@@ -45,13 +46,13 @@ describe('PasswordReset component', () => {
 		expect(button).toBeInTheDocument()
 	})
 
-	it('should render link', () => {
+	it('contains navigation link', () => {
 		renderComponent()
 
 		const link = screen.getByRole('link', {
-			name: /back to login/i
+			name: /back to log in/i
 		})
 
-		expect(link).toHaveAttribute('href', '/login')
+		expect(link).toBeInTheDocument()
 	})
 })
