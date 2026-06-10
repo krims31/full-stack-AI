@@ -147,13 +147,13 @@ export default function RegisterPages() {
 				<div>
 					<input
 						type="checkbox"
-						className="relative -top-3 z-10"
+						className="relative -top-9.5 z-10"
 					/>
-					<span className="relative -top-3 left-3 text-white">
+					<span className="relative -top-9.5 left-3 text-white">
 						I agree to the{' '}
 						<Link
 							to="/"
-							className="text-blue-600"
+							className="text-blue-600 underline"
 						>
 							Terms of Service
 						</Link>
@@ -163,7 +163,7 @@ export default function RegisterPages() {
 				{/* SUBMIT */}
 				<button
 					type="submit"
-					className="bg-gradient-to-r from-purple-500 to-violet-700 text-white py-3 rounded-xl font-semibold hover:bg-blue-700 transition-colors relative top-5"
+					className="bg-linear-to-r from-purple-500 to-violet-700 text-white py-3 rounded-xl font-semibold hover:bg-blue-700 transition-colors relative top-5"
 				>
 					Create account
 				</button>

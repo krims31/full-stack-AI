@@ -133,7 +133,7 @@ export default function LoginPages() {
 				{/* FORGOT PASSWORD */}
 				<Link
 					to="/forgotten-password"
-					className="text-sm text-blue-600 hover:underline self-end"
+					className="text-sm text-white hover:underline self-end"
 				>
 					Forgot Password?
 				</Link>
@@ -178,7 +178,7 @@ export default function LoginPages() {
 						New here?{' '}
 						<Link
 							to="/register"
-							className="text-blue-600 font-medium hover:underline"
+							className="text-white font-medium hover:underline"
 						>
 							Register
 						</Link>
