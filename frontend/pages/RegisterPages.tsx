@@ -38,7 +38,7 @@ export default function RegisterPages() {
 	}
 
 	return (
-		<div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-[#0f0f14] via-[#151521] to-[#1d1135] px-4 sm:px-6 lg:px-8">
+		<div className="min-h-screen flex items-center justify-center bg-linear-to-br from-[#0f0f14] via-[#151521] to-[#1d1135] px-4 sm:px-6 lg:px-8">
 			<div className="absolute w-72 h-72 bg-purple-500/30 rounded-full blur-3xl top-10 left-10"></div>
 
 			<div className="absolute w-72 h-72 bg-blue-500/20 rounded-full blur-3xl bottom-10 right-10"></div>
