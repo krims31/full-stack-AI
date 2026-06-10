@@ -25,7 +25,7 @@ describe('SetNewPassword Component', () => {
 	it('should render description', () => {
 		renderComponent()
 
-		const description = screen.getByText(/your password has been set/i)
+		const description = screen.getByText(/must be at least 8 characters/i)
 
 		expect(description).toBeInTheDocument()
 	})
@@ -33,7 +33,7 @@ describe('SetNewPassword Component', () => {
 	it('should render 2 inputs', () => {
 		renderComponent()
 
-		const inputs = screen.getAllByRole('textbox')
+		const inputs = screen.getAllByPlaceholderText(/\*{7}/)
 
 		expect(inputs.length).toBe(2)
 	})
@@ -41,11 +41,11 @@ describe('SetNewPassword Component', () => {
 	it('should render button', () => {
 		renderComponent()
 
-		expect(
-			screen.getByRole('button', {
-				name: /Reset password/i
-			})
-		)
+		const button = screen.getByRole('button', {
+			name: /reset password/i
+		})
+
+		expect(button).toBeInTheDocument()
 	})
 
 	it('contains navigation links', () => {
