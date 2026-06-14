@@ -4,8 +4,8 @@ import { useForm, type SubmitHandler } from 'react-hook-form'
 import { AiOutlineEye, AiOutlineEyeInvisible } from 'react-icons/ai'
 import { MdOutlineMailOutline } from 'react-icons/md'
 import { Link, useNavigate } from 'react-router-dom'
-import type { Inputs } from '../entities/user/types'
-import { useAuthState } from '../features/auth/state'
+import type { Inputs } from '../../../entities/user/types'
+import { useAuthState } from '../../../features/auth/state'
 
 export default function LoginPages() {
 	const [showPassword, setShowPassword] = useState(false)

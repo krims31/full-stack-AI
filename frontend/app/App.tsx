@@ -16,7 +16,6 @@ import Folder from '../pages/widgets/sidebar/pages for icon/Folder'
 import Git from '../pages/widgets/sidebar/pages for icon/Git'
 import History from '../pages/widgets/sidebar/pages for icon/History'
 import Sidebar from '../pages/widgets/sidebar/ui/Sidebar'
-import './App.css'
 import { ProtectedRoutes } from './providers/routes/ProtectedRoutes'
 import { ThemeProvider } from './providers/ThemeProvider'
 
