@@ -8,7 +8,7 @@ import ThemeSection from './ThemeSection'
 export default function Settings() {
 	return (
 		<>
-			<div className="border rounded-xl w-200 h-180 relative top-20 left-110 placeholder:text-gray-600 transition-all border-black/10 shadow-lg hover:shadow-xl outline-0 text-black"></div>
+			<div className="border rounded-xl w-200 h-180 relative top-20 left-0 placeholder:text-gray-600 transition-all border-black/10 shadow-lg hover:shadow-xl outline-0 text-black 2xl:ml-110 xl:ml-70"></div>
 
 			<header>
 				<HeaderSettings />
@@ -23,7 +23,7 @@ export default function Settings() {
 
 				<div>
 					<div>
-						<div className="w-200 h-0.5 absolute top-61 left-110 shadow-sm border-t bg-gray-300 border-white"></div>
+						<div className="w-200 h-0.5 absolute top-61 2xl:ml-110 xl:ml-70 shadow-sm border-t bg-gray-300 border-white"></div>
 					</div>
 				</div>
 
@@ -33,7 +33,7 @@ export default function Settings() {
 
 				<div>
 					<div>
-						<div className="w-200 h-0.5 absolute top-127 left-110 shadow-sm border-t bg-gray-300 border-white"></div>
+						<div className="w-200 h-0.5 absolute top-127 2xl:ml-110 xl:ml-70 shadow-sm border-t bg-gray-300 border-white"></div>
 					</div>
 				</div>
 
@@ -43,7 +43,7 @@ export default function Settings() {
 
 				<div>
 					<div>
-						<div className="w-200 h-0.5 absolute top-164 left-110 shadow-sm border-t bg-gray-300 border-white"></div>
+						<div className="w-200 h-0.5 absolute top-164 2xl:ml-110 xl:ml-70 shadow-sm border-t bg-gray-300 border-white"></div>
 					</div>
 				</div>
 
