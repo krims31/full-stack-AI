@@ -162,7 +162,7 @@ export default function Chat() {
 						<img
 							src="./ai-black.png"
 							alt="ai-black"
-							className="2xl:-mt-24 2xl:-ml-159 2xl:w-4 xl:w-4 xl:-mt-75 xl:ml-74 max-sm:-ml-76 max-sm:-mt-23 max-sm:w-4"
+							className="2xl:-mt-24 2xl:-ml-159 2xl:w-4 xl:w-4 xl:-mt-24 xl:-ml-159 max-sm:-ml-76 max-sm:-mt-23 max-sm:w-4"
 						/>
 					</div>
 				</div>
