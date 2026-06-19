@@ -1,4 +1,4 @@
-import Sidebar from '../widgets/sidebar/ui/Sidebar'
+import Sidebar from '../../widgets/sidebar/ui/Sidebar'
 import AccountSection from './AccountSection'
 import HeaderSettings from './HeaderSettings'
 import PersonalInformation from './PersonalInformation'
