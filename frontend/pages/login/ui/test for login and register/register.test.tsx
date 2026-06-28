@@ -39,7 +39,7 @@ describe('should render component', () => {
 	it('should checkbox render component', () => {
 		renderComponent()
 
-		const checkbox = screen.getAllByRole('checkbox')
+		const checkbox = screen.getByRole('checkbox')
 
 		expect(checkbox).toBeInTheDocument()
 	})
