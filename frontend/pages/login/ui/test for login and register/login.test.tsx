@@ -1,6 +1,6 @@
 import '@testing-library/jest-dom'
 import { render, screen } from '@testing-library/react'
-import { MemoryRouter } from 'react-router'
+import { MemoryRouter } from 'react-router-dom'
 import { describe, expect, it } from 'vitest'
 import LoginPages from '../LoginPages'
 
@@ -57,7 +57,7 @@ describe('should render component', () => {
 		renderComponent()
 
 		const buttonMeta = screen.getByRole('button', {
-			name: /img/i
+			name: /Meta/i
 		})
 
 		expect(buttonMeta).toBeInTheDocument()
@@ -67,7 +67,7 @@ describe('should render component', () => {
 		renderComponent()
 
 		const buttonGoogle = screen.getByRole('button', {
-			name: /img/i
+			name: /google/i
 		})
 
 		expect(buttonGoogle).toBeInTheDocument()
