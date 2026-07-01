@@ -1,5 +1,6 @@
 import { Paperclip, Plus, Search, UserRoundPlus } from 'lucide-react'
 import { useState } from 'react'
+import { useAttach } from '../../../../features/hooks/useAttach'
 import useChatAi from '../../../../features/hooks/useChatAi'
 import Sidebar from '../ui/Sidebar'
 
@@ -17,6 +18,8 @@ export default function Chat() {
 	} = useChatAi()
 
 	const [isSearchOpen, setIsSearchOpen] = useState(false)
+
+	const { file, fileInputRef, handleClick, handleFileChange } = useAttach()
 
 	return (
 		<>
@@ -116,10 +119,22 @@ export default function Chat() {
 							disabled={isLoading}
 						/>
 
-						<button className="relative -mt-12 mr-auto border rounded-md px-2 xl:px-3 py-1 transition-shadow border-black/10 shadow-lg hover:shadow-xl xl:ml-75 2xl:ml-120 lg:ml-50 flex items-center gap-1 text-black max-[1280px]:ml-40 max-sm:-ml-3">
+						<button
+							onClick={handleClick}
+							className="relative -mt-12 mr-auto border rounded-md px-2 xl:px-3 py-1 transition-shadow border-black/10 shadow-lg hover:shadow-xl xl:ml-75 2xl:ml-120 lg:ml-50 flex items-center gap-1 text-black max-[1280px]:ml-40 max-sm:-ml-3"
+						>
 							<Paperclip size={15} />
 							Attach
 						</button>
+
+						<input
+							ref={fileInputRef}
+							type="file"
+							hidden
+							onChange={handleFileChange}
+						/>
+
+						{file && <p className="text-sm text-gray-500">{file.name}</p>}
 
 						<div className="flex flex-wrap justify-center items-center gap-4 -mt-8">
 							<select className="border rounded-md px-3 py-1 xl:px-3 transition-shadow border-black/10 shadow-lg hover:shadow-xl mr-50 2xl:ml-10 text-black max-sm:ml-50">

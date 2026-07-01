@@ -1,7 +1,9 @@
 import { Paperclip } from 'lucide-react'
 import useAI from '../../features/hooks/useAI'
+import { useAttach } from '../../features/hooks/useAttach'
 export default function MainAI() {
 	const { enabled, setEnabled, handleSend } = useAI()
+	const { file, fileInputRef, handleClick, handleFileChange } = useAttach()
 	return (
 		<>
 			<img
@@ -47,6 +49,7 @@ export default function MainAI() {
 
 				{/* Attach */}
 				<button
+					onClick={handleClick}
 					className="relative -mt-12 mr-auto border rounded-md px-2 xl:px-3 py-1 transition-all 
 						border-black/10 shadow-lg hover:shadow-xl 
 						flex items-center gap-1 text-black
@@ -56,6 +59,15 @@ export default function MainAI() {
 					<Paperclip size={15} />
 					Attach
 				</button>
+
+				<input
+					type="file"
+					ref={fileInputRef}
+					hidden
+					onChange={handleFileChange}
+				/>
+
+				{file && <p className="text-sm text-gray-500">{file.name}</p>}
 
 				{/* OPTIONS */}
 				<div className="flex flex-wrap justify-center items-center gap-4 -mt-8">
