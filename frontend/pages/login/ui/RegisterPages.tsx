@@ -163,7 +163,7 @@ export default function RegisterPages() {
 				{/* SUBMIT */}
 				<button
 					type="submit"
-					className="bg-linear-to-r from-purple-500 to-violet-700 text-white py-3 rounded-xl font-semibold hover:bg-blue-700 transition-colors relative top-5"
+					className="bg-black text-white py-3 rounded-xl font-semibold hover:bg-black/80 transition-colors relative top-5"
 				>
 					Create account
 				</button>
