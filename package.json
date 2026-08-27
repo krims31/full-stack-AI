@@ -12,7 +12,8 @@
 		"build:frontend": "vite build",
 		"build:backend": "tsc -p backend/tsconfig.json",
 		"start": "node backend/dist/server.js",
-		"preview": "vite preview"
+		"preview": "vite preview",
+		"tauri": "tauri"
 	},
 	"dependencies": {
 		"@codewithhridoy/tailwind-browser": "^1.0.2",
@@ -42,6 +43,7 @@
 		"@eslint/js": "^10.0.1",
 		"@rolldown/plugin-babel": "^0.2.3",
 		"@tailwindcss/vite": "^4.2.4",
+		"@tauri-apps/cli": "^2.11.4",
 		"@types/babel__core": "^7.20.5",
 		"@types/bcrypt": "^6.0.0",
 		"@types/cors": "^2.8.19",
