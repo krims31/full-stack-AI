@@ -11,7 +11,9 @@ export default function useForgotPassword() {
 	const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
 		e.preventDefault()
 
-		if (!email.trim()) {
+		const trimmedEmail = email.trim()
+
+		if (!trimmedEmail) {
 			return
 		}
 
@@ -21,7 +23,7 @@ export default function useForgotPassword() {
 			const response = await axios.post(
 				'http://localhost:5000/api/auth/forgot-password',
 				{
-					email: email.trim()
+					email: trimmedEmail
 				}
 			)
 
@@ -29,8 +31,8 @@ export default function useForgotPassword() {
 
 			navigate('/password-reset', {
 				state: {
-					email: email.trim(),
-					code: response.data
+					email: trimmedEmail,
+					code: response.data.code
 				}
 			})
 		} catch (error) {
