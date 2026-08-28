@@ -1,7 +1,22 @@
 import { ArrowLeft, MailOpen } from 'lucide-react'
-import { Link } from 'react-router'
+import { Link, Navigate, useLocation } from 'react-router'
+import usePasswordReset from '../../../features/hooks/usePasswordReset'
 
 export default function PasswordReset() {
+	const { code, setCode, handleCodeChange } = usePasswordReset()
+	const location = useLocation()
+
+	const email = location.state?.email
+
+	if (!email) {
+		return (
+			<Navigate
+				to="/forgotten-password"
+				replace
+			/>
+		)
+	}
+
 	return (
 		<>
 			<main>
@@ -14,13 +29,16 @@ export default function PasswordReset() {
 					</h1>
 
 					<p className="flex item-center justify-center -mt-196 ml-0 gap-1 text-gray-600">
-						We sent a code to{' '}
-						<strong className="text-black">krims31@mail.ru</strong>
+						We sent a code to <strong className="text-black">{email}</strong>
 					</p>
 
 					<div>
 						<input
 							type="text"
+							inputMode="numeric"
+							maxLength={1}
+							value={code[0]}
+							onChange={event => handleCodeChange(0, event.target.value)}
 							className="w-20 h-20 border rounded-xl mt-5 ml-10 text-black transition-all border-black/10 shadow-lg hover:shadow-xl outline-0 text-3xl text-bold pl-7"
 						/>
 					</div>
@@ -28,6 +46,10 @@ export default function PasswordReset() {
 					<div>
 						<input
 							type="text"
+							inputMode="numeric"
+							maxLength={1}
+							value={code[1]}
+							onChange={event => handleCodeChange(1, event.target.value)}
 							className="w-20 h-20 border rounded-xl relative -top-20 left-33 text-black transition-all border-black/10 shadow-lg hover:shadow-xl outline-0 text-3xl text-bold pl-7"
 						/>
 					</div>
@@ -35,6 +57,10 @@ export default function PasswordReset() {
 					<div>
 						<input
 							type="text"
+							inputMode="numeric"
+							maxLength={1}
+							value={code[2]}
+							onChange={event => handleCodeChange(2, event.target.value)}
 							className="w-20 h-20 border rounded-xl relative -top-40 left-56 text-black transition-all border-black/10 shadow-lg hover:shadow-xl outline-0 text-3xl text-bold pl-7"
 						/>
 					</div>
@@ -42,6 +68,10 @@ export default function PasswordReset() {
 					<div>
 						<input
 							type="text"
+							inputMode="numeric"
+							maxLength={1}
+							value={code[3]}
+							onChange={event => handleCodeChange(3, event.target.value)}
 							className="w-20 h-20 border rounded-xl relative -top-60 left-79 text-black transition-all border-black/10 shadow-lg hover:shadow-xl outline-0 text-3xl text-bold pl-7"
 						/>
 					</div>

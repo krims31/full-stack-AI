@@ -227,6 +227,26 @@ app.get('/api/auth/me', (req: Request, res: Response) => {
 	}
 })
 
+app.post('/api/auth/forgot-password', (req: Request, res: Response) => {
+	const { email } = req.body
+
+	if (!email) {
+		return res.status(400).json({ message: 'Email is required' })
+	}
+
+	const user = userStorage.getEmail(email)
+
+	if (!user) {
+		return res.status(404).json({ message: 'User not found' })
+	}
+
+	const code = Math.floor(1000 + Math.random() * 9000).toString()
+
+	console.log(`Reset code for ${email}: ${code}`)
+
+	return res.json({ message: 'Reset code generated', code })
+})
+
 app.get('/api/auth/users', (req: Request, res: Response) => {
 	const allUsers = userStorage.getAll()
 	const usersWithoutPassword = allUsers.map(excludePassword)

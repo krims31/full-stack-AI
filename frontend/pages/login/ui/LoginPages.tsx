@@ -75,7 +75,7 @@ export default function LoginPages() {
 							className={`w-full border p-3 pl-10 text-black rounded-xl focus:outline-blue-500 ${
 								errors.email
 									? 'border-red-500'
-									: 'bg-white/5 border-white/10 text-white placeholder:text-gray-400 focus:ring-2 focus:ring-purple-500'
+									: 'bg-white/5 border-white/10 text-white placeholder:text-gray-400'
 							}`}
 						/>
 
@@ -106,7 +106,7 @@ export default function LoginPages() {
 							className={`w-full border p-3 pl-10 pr-10 text-black rounded-xl focus:outline-blue-500 ${
 								errors.password
 									? 'border-red-500'
-									: 'bg-white/5 border-white/10 text-white placeholder:text-gray-400 focus:ring-2 focus:ring-purple-500'
+									: 'bg-white/5 border-white/10 text-white placeholder:text-gray-400'
 							}`}
 						/>
 

@@ -1,0 +1,20 @@
+pkgname=ai-nexus
+pkgver=0.1.1
+pkgrel=1
+pkgdesc="AI Nexus desktop application"
+arch=('x86_64')
+license=('MIT')
+
+package() {
+    install -Dm755 "$startdir/usr/bin/ai-nexus" \
+        "$pkgdir/usr/bin/ai-nexus"
+
+    install -Dm755 "$startdir/usr/bin/ai-nexus-launcher" \
+        "$pkgdir/usr/bin/ai-nexus-launcher"
+
+    install -Dm644 "$startdir/usr/share/applications/ai-nexus.desktop" \
+        "$pkgdir/usr/share/applications/ai-nexus.desktop"
+
+    install -Dm644 "$startdir/usr/share/icons/hicolor/128x128/apps/ai-nexus.png" \
+        "$pkgdir/usr/share/icons/hicolor/128x128/apps/ai-nexus.png"
+}

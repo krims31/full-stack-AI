@@ -22,7 +22,7 @@ export default function SetNewPassword() {
 						<input
 							type="password"
 							placeholder="*******"
-							className="border rounded-md w-70 h-9 transition-all border-black/10 shadow-lg hover:shadow-xl outline-0 pl-2 text-black placeholder:text-gray-600 focus:ring-2 focus:ring-purple-500 focus:border-transparent ml-20 mt-1"
+							className="border rounded-md w-70 h-9 transition-all border-black/10 shadow-lg hover:shadow-xl outline-0 pl-2 text-black placeholder:text-gray-600 focus:ring-2 focus:ring-black focus:border-transparent ml-20 mt-1"
 						/>
 					</div>
 
@@ -31,7 +31,7 @@ export default function SetNewPassword() {
 						<input
 							type="password"
 							placeholder="*******"
-							className="border rounded-md w-70 h-9 transition-all border-black/10 shadow-lg hover:shadow-xl outline-0 pl-2 text-black placeholder:text-gray-600 focus:ring-2 focus:ring-purple-500 focus:border-transparent ml-20 mt-1"
+							className="border rounded-md w-70 h-9 transition-all border-black/10 shadow-lg hover:shadow-xl outline-0 pl-2 text-black placeholder:text-gray-600 focus:ring-2 focus:ring-black focus:border-transparent ml-20 mt-1"
 						/>
 					</div>
 
