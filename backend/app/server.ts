@@ -22,6 +22,14 @@ const transporter = nodemailer.createTransport({
 	}
 })
 
+transporter.verify((error, success) => {
+	if (error) {
+		console.log("SMTP isn't ready!", error)
+	} else {
+		console.log('SMTP is ready!')
+	}
+})
+
 const resetCodes = new Map<string, string>()
 
 const excludePassword = <T extends { password: string }>(
