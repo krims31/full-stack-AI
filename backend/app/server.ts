@@ -228,6 +228,8 @@ app.get('/api/auth/me', (req: Request, res: Response) => {
 })
 
 app.post('/api/auth/forgot-password', (req: Request, res: Response) => {
+	console.log("REQUEST FORGOT PASSWORD")
+	console.log("Body: ", req.body)
 	const { email } = req.body
 
 	if (!email) {
