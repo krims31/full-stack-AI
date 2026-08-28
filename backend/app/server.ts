@@ -3,7 +3,6 @@ import cors from 'cors'
 import dotenv from 'dotenv'
 import express, { type Request, type Response } from 'express'
 import jwt from 'jsonwebtoken'
-import nodemailer from 'nodemailer'
 import OpenAI from 'openai'
 import { myToken } from '../interface/token'
 import { User } from '../interface/user'
@@ -11,24 +10,6 @@ import { userStorage } from '../shared/Database/userStorage'
 import { openrouter } from '../shared/utils/config/openrouter'
 
 dotenv.config()
-
-const transporter = nodemailer.createTransport({
-	host: "smtp-relay.brevo.com",
-	port: 2525,
-	secure: false,
-	auth: {
-		user: process.env.EMAIL_USER,
-		pass: process.env.EMAIL_PASSWORD
-	}
-})
-
-transporter.verify((error: Error | null) => {
-	if (error) {
-		console.log("SMTP isn't ready!", error)
-	} else {
-		console.log('SMTP is ready!')
-	}
-})
 
 const resetCodes = new Map<string, string>()
 
@@ -248,41 +229,71 @@ app.get('/api/auth/me', (req: Request, res: Response) => {
 	}
 })
 
+const sendResetEmail = async (email: string, code: string) => {
+  const response = await fetch('https://api.brevo.com/v3/smtp/email', {
+    method: 'POST',
+    headers: {
+      accept: 'application/json',
+      'api-key': process.env.BREVO_API_KEY!,
+      'content-type': 'application/json'
+    },
+    body: JSON.stringify({
+      sender: {
+        name: 'Full Stack AI',
+        email: 'vegor405@gmail.com'
+      },
+      to: [
+        {
+          email
+        }
+      ],
+      subject: 'Password reset code',
+      textContent: `Your password reset code is: ${code}`
+    })
+  })
+
+  if (!response.ok) {
+    const errorText = await response.text()
+    throw new Error(`Brevo API error ${response.status}: ${errorText}`)
+  }
+
+  return response.json()
+}
+
 app.post('/api/auth/forgot-password', async (req: Request, res: Response) => {
-	console.log('REQUEST FORGOT PASSWORD')
-	console.log('Body: ', req.body)
-	const { email } = req.body
+  console.log('REQUEST FORGOT PASSWORD')
+  console.log('Body:', req.body)
 
-	if (!email) {
-		return res.status(400).json({ message: 'Email is required' })
-	}
+  const { email } = req.body
 
-	const code = Math.floor(1000 + Math.random() * 9000).toString()
+  if (!email) {
+    return res.status(400).json({
+      message: 'Email is required'
+    })
+  }
 
-	resetCodes.set(email, code)
+  const code = Math.floor(1000 + Math.random() * 9000).toString()
 
-	try {
-		await transporter.sendMail({
-			from: 'vegor405@gmail.com',
-			to: email,
-			subject: 'Password reset code',
-			text: `Your password reset code is: ${code}`
-		})
+  resetCodes.set(email, code)
 
-		console.log('CODE', code)
+  try {
+    const result = await sendResetEmail(email, code)
 
-		console.log(`Reset code for ${email}: ${code}`)
+    console.log('Brevo response:', result)
+    console.log('Reset code sent to:', email)
 
-		return res.json({ message: 'Reset code generated' })
-	} catch (error) {
-		console.error('Email error:', error)
+    return res.json({
+      message: 'Reset code sent'
+    })
+  } catch (error) {
+    console.error('Brevo email error:', error)
 
-		resetCodes.delete(email)
+    resetCodes.delete(email)
 
-		return res.status(500).json({
-			message: 'Failed to send reset code'
-		})
-	}
+    return res.status(500).json({
+      message: 'Failed to send reset code'
+    })
+  }
 })
 
 app.post('/api/auth/verify-code', (req: Request, res: Response) => {
