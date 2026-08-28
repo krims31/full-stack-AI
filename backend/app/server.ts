@@ -22,7 +22,7 @@ const transporter = nodemailer.createTransport({
 	}
 })
 
-transporter.verify((error) => {
+transporter.verify((error: Error | null) => {
 	if (error) {
 		console.log("SMTP isn't ready!", error)
 	} else {
