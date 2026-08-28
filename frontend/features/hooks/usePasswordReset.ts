@@ -8,6 +8,15 @@ export default function usePasswordReset() {
 
 	const email = location.state?.email
 
+	const handleKeyDown = (index: number, event: React.KeyboardEvent) => {
+		if (event.key === 'Backspace') {
+			if (!code[index] && index > 0) {
+				return
+			}
+			handleCodeChange(index, '')
+		}
+	}
+
 	const handleCodeChange = (index: number, value: string) => {
 		if (!/^\d$/.test(value)) return
 
@@ -41,6 +50,7 @@ export default function usePasswordReset() {
 		handleCodeChange,
 		code,
 		setCode,
-		handleVerifyCode
+		handleVerifyCode,
+		handleKeyDown
 	}
 }

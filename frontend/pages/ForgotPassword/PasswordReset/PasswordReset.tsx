@@ -3,7 +3,8 @@ import { Link, Navigate, useLocation } from 'react-router'
 import usePasswordReset from '../../../features/hooks/usePasswordReset'
 
 export default function PasswordReset() {
-	const { code, handleVerifyCode, handleCodeChange } = usePasswordReset()
+	const { code, handleVerifyCode, handleKeyDown, handleCodeChange } =
+		usePasswordReset()
 	const location = useLocation()
 
 	const email = location.state?.email
@@ -48,6 +49,7 @@ export default function PasswordReset() {
 							inputMode="numeric"
 							maxLength={1}
 							value={code[0]}
+							onKeyDown={event => handleKeyDown(0, event)}
 							onChange={event => handleCodeChange(0, event.target.value)}
 							className="w-20 h-20 border rounded-xl mt-5 ml-10 text-black transition-all border-black/10 shadow-lg hover:shadow-xl outline-0 text-3xl text-bold pl-7"
 						/>
