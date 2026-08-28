@@ -61,6 +61,7 @@ export default function PasswordReset() {
 							inputMode="numeric"
 							maxLength={1}
 							value={code[1]}
+							onKeyDown={event => handleKeyDown(1, event)}
 							onChange={event => handleCodeChange(1, event.target.value)}
 							className="w-20 h-20 border rounded-xl relative -top-20 left-33 text-black transition-all border-black/10 shadow-lg hover:shadow-xl outline-0 text-3xl text-bold pl-7"
 						/>
@@ -72,6 +73,7 @@ export default function PasswordReset() {
 							inputMode="numeric"
 							maxLength={1}
 							value={code[2]}
+							onKeyDown={event => handleKeyDown(2, event)}
 							onChange={event => handleCodeChange(2, event.target.value)}
 							className="w-20 h-20 border rounded-xl relative -top-40 left-56 text-black transition-all border-black/10 shadow-lg hover:shadow-xl outline-0 text-3xl text-bold pl-7"
 						/>
@@ -83,6 +85,7 @@ export default function PasswordReset() {
 							inputMode="numeric"
 							maxLength={1}
 							value={code[3]}
+							onKeyDown={event => handleKeyDown(3, event)}
 							onChange={event => handleCodeChange(3, event.target.value)}
 							className="w-20 h-20 border rounded-xl relative -top-60 left-79 text-black transition-all border-black/10 shadow-lg hover:shadow-xl outline-0 text-3xl text-bold pl-7"
 						/>
