@@ -19,9 +19,9 @@ export default function useForgotPassword() {
 			setLoading(true)
 
 			const response = await axios.post(
-				'https://full-stack-ai-6uq7.onrender.com/api/auth/forgot-password',
+				'http://localhost:5000/api/auth/forgot-password',
 				{
-					email
+					email: email.trim()
 				}
 			)
 
