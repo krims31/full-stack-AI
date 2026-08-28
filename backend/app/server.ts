@@ -244,6 +244,8 @@ app.post('/api/auth/forgot-password', (req: Request, res: Response) => {
 
 	const code = Math.floor(1000 + Math.random() * 9000).toString()
 
+	console.log("CODE", code);
+
 	console.log(`Reset code for ${email}: ${code}`)
 
 	return res.json({ message: 'Reset code generated', code })

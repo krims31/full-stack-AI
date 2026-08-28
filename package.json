@@ -11,7 +11,7 @@
 		"build": "npm run build:frontend && npm run build:backend",
 		"build:frontend": "vite build",
 		"build:backend": "tsc -p backend/tsconfig.json",
-		"start": "node backend/dist/server.js",
+		"start": "node backend/dist/app/server.js",
 		"preview": "vite preview",
 		"tauri": "tauri"
 	},
