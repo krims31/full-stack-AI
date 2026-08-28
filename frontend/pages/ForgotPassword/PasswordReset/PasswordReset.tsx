@@ -3,7 +3,7 @@ import { Link, Navigate, useLocation } from 'react-router'
 import usePasswordReset from '../../../features/hooks/usePasswordReset'
 
 export default function PasswordReset() {
-	const { code, handleCodeChange } = usePasswordReset()
+	const { code, handleVerifyCode, handleCodeChange } = usePasswordReset()
 	const location = useLocation()
 
 	const email = location.state?.email
@@ -12,6 +12,16 @@ export default function PasswordReset() {
 		return (
 			<Navigate
 				to="/forgotten-password"
+				replace
+			/>
+		)
+	}
+
+	if (code.length === 6) {
+		return (
+			<Navigate
+				to="/forgot-password/set-new-password"
+				state={{ email }}
 				replace
 			/>
 		)
@@ -77,7 +87,10 @@ export default function PasswordReset() {
 					</div>
 
 					<div>
-						<button className="flex item-center justify-center border rounded-md w-70 h-10 transition-all border-black/10 bg-blue-600 shadow-lg hover:shadow-xl outline-0 cursor-pointer duration-300 hover:scale-105 active:scale-95 relative -top-55 left-20">
+						<button
+							onClick={handleVerifyCode}
+							className="flex item-center justify-center border rounded-md w-70 h-10 transition-all border-black/10 bg-blue-600 shadow-lg hover:shadow-xl outline-0 cursor-pointer duration-300 hover:scale-105 active:scale-95 relative -top-55 left-20"
+						>
 							<span className="mt-2 text-white">Continue</span>
 						</button>
 					</div>

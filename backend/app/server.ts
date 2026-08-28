@@ -3,6 +3,7 @@ import cors from 'cors'
 import dotenv from 'dotenv'
 import express, { type Request, type Response } from 'express'
 import jwt from 'jsonwebtoken'
+import nodemailer from 'nodemailer'
 import OpenAI from 'openai'
 import { myToken } from '../interface/token'
 import { User } from '../interface/user'
@@ -10,6 +11,16 @@ import { userStorage } from '../shared/Database/userStorage'
 import { openrouter } from '../shared/utils/config/openrouter'
 
 dotenv.config()
+
+const transporter = nodemailer.createTransport({
+	host: 'smtp.example.com',
+	port: 587,
+	secure: false,
+	auth: {
+		user: process.env.SMTP_USER,
+		pass: process.env.SMTP_PASS
+	}
+})
 
 const excludePassword = <T extends { password: string }>(
 	obj: T
@@ -227,9 +238,9 @@ app.get('/api/auth/me', (req: Request, res: Response) => {
 	}
 })
 
-app.post('/api/auth/forgot-password', (req: Request, res: Response) => {
-	console.log("REQUEST FORGOT PASSWORD")
-	console.log("Body: ", req.body)
+app.post('/api/auth/forgot-password', async (req: Request, res: Response) => {
+	console.log('REQUEST FORGOT PASSWORD')
+	console.log('Body: ', req.body)
 	const resetCode = new Map<string, string>()
 	const { email } = req.body
 
@@ -241,11 +252,37 @@ app.post('/api/auth/forgot-password', (req: Request, res: Response) => {
 
 	resetCode.set(email, code)
 
-	console.log("CODE", code);
+	await transporter.sendMail({
+		from: process.env.EMAIL_USER,
+		to: email,
+		subject: 'Password reset code',
+		text: `Your password reset code is: ${code}`
+	})
+
+	console.log('CODE', code)
 
 	console.log(`Reset code for ${email}: ${code}`)
 
 	return res.json({ message: 'Reset code generated' })
+})
+
+app.post('/api/auth/verify-code', (req: Request, res: Response) => {
+	const { email, code } = req.body
+	const resetCode = new Map<string, string>()
+
+	const savedCode = resetCode.get(email)
+
+	if (!savedCode) {
+		return res.status(400).json({ message: 'Code expired or not found' })
+	}
+
+	if (savedCode !== code) {
+		return res.status(400).json({ message: 'Invalid code' })
+	}
+
+	resetCode.delete(email)
+
+	return res.json({ message: 'Code verified' })
 })
 
 app.get('/api/auth/users', (req: Request, res: Response) => {
