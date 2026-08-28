@@ -3,7 +3,7 @@ import { Link, Navigate, useLocation } from 'react-router'
 import usePasswordReset from '../../../features/hooks/usePasswordReset'
 
 export default function PasswordReset() {
-	const { code, setCode, handleCodeChange } = usePasswordReset()
+	const { code, handleCodeChange } = usePasswordReset()
 	const location = useLocation()
 
 	const email = location.state?.email
