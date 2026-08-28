@@ -13,7 +13,7 @@ import { openrouter } from '../shared/utils/config/openrouter'
 dotenv.config()
 
 const transporter = nodemailer.createTransport({
-	host: process.env.EMAIL_USER,
+	host: "smtp-relay.brevo.com",
 	port: 587,
 	secure: false,
 	auth: {
