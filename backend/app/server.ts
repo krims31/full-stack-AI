@@ -248,7 +248,7 @@ app.post('/api/auth/forgot-password', (req: Request, res: Response) => {
 
 	console.log(`Reset code for ${email}: ${code}`)
 
-	return res.json({ message: 'Reset code generated', code })
+	return res.json({ message: 'Reset code generated', code: "1234" })
 })
 
 app.get('/api/auth/users', (req: Request, res: Response) => {

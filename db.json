@@ -1,0 +1,11 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "email": "test@mail.ru",
+      "username": "test",
+      "password": "$2b$10$5BhhGLX.kVK2qAMyQetfieMGQi2tMhVeLyW/Gc5Tv0xxXxgetThGa",
+      "createdAt": "2026-08-28T11:16:29.100Z"
+    }
+  ]
+}
