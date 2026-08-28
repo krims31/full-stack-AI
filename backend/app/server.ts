@@ -22,6 +22,8 @@ const transporter = nodemailer.createTransport({
 	}
 })
 
+const resetCodes = new Map<string, string>()
+
 const excludePassword = <T extends { password: string }>(
 	obj: T
 ): Omit<T, 'password'> => {
@@ -241,7 +243,6 @@ app.get('/api/auth/me', (req: Request, res: Response) => {
 app.post('/api/auth/forgot-password', async (req: Request, res: Response) => {
 	console.log('REQUEST FORGOT PASSWORD')
 	console.log('Body: ', req.body)
-	const resetCode = new Map<string, string>()
 	const { email } = req.body
 
 	if (!email) {
@@ -250,27 +251,36 @@ app.post('/api/auth/forgot-password', async (req: Request, res: Response) => {
 
 	const code = Math.floor(1000 + Math.random() * 9000).toString()
 
-	resetCode.set(email, code)
+	resetCodes.set(email, code)
 
-	await transporter.sendMail({
-		from: process.env.EMAIL_USER,
-		to: email,
-		subject: 'Password reset code',
-		text: `Your password reset code is: ${code}`
-	})
+	try {
+		await transporter.sendMail({
+			from: process.env.EMAIL_USER,
+			to: email,
+			subject: 'Password reset code',
+			text: `Your password reset code is: ${code}`
+		})
 
-	console.log('CODE', code)
+		console.log('CODE', code)
 
-	console.log(`Reset code for ${email}: ${code}`)
+		console.log(`Reset code for ${email}: ${code}`)
 
-	return res.json({ message: 'Reset code generated' })
+		return res.json({ message: 'Reset code generated' })
+	} catch (error) {
+		console.error('Email error:', error)
+
+		resetCodes.delete(email)
+
+		return res.status(500).json({
+			message: 'Failed to send reset code'
+		})
+	}
 })
 
 app.post('/api/auth/verify-code', (req: Request, res: Response) => {
 	const { email, code } = req.body
-	const resetCode = new Map<string, string>()
 
-	const savedCode = resetCode.get(email)
+	const savedCode = resetCodes.get(email)
 
 	if (!savedCode) {
 		return res.status(400).json({ message: 'Code expired or not found' })
@@ -280,7 +290,7 @@ app.post('/api/auth/verify-code', (req: Request, res: Response) => {
 		return res.status(400).json({ message: 'Invalid code' })
 	}
 
-	resetCode.delete(email)
+	resetCodes.delete(email)
 
 	return res.json({ message: 'Code verified' })
 })
