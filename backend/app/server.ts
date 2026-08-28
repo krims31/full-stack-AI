@@ -13,7 +13,7 @@ import { openrouter } from '../shared/utils/config/openrouter'
 dotenv.config()
 
 const transporter = nodemailer.createTransport({
-	host: 'smtp-relay.brevo.com',
+	host: process.env.EMAIL_USER,
 	port: 587,
 	secure: false,
 	auth: {
@@ -22,7 +22,7 @@ const transporter = nodemailer.createTransport({
 	}
 })
 
-transporter.verify((error, success) => {
+transporter.verify((error) => {
 	if (error) {
 		console.log("SMTP isn't ready!", error)
 	} else {
@@ -263,7 +263,7 @@ app.post('/api/auth/forgot-password', async (req: Request, res: Response) => {
 
 	try {
 		await transporter.sendMail({
-			from: "b70194001@smtp-brevo.com",
+			from: 'b70194001@smtp-brevo.com',
 			to: email,
 			subject: 'Password reset code',
 			text: `Your password reset code is: ${code}`
