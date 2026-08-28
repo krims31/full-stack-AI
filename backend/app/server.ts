@@ -263,7 +263,7 @@ app.post('/api/auth/forgot-password', async (req: Request, res: Response) => {
 
 	try {
 		await transporter.sendMail({
-			from: 'b70194001@smtp-brevo.com',
+			from: 'vegor405@gmail.com',
 			to: email,
 			subject: 'Password reset code',
 			text: `Your password reset code is: ${code}`
