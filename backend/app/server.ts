@@ -13,12 +13,12 @@ import { openrouter } from '../shared/utils/config/openrouter'
 dotenv.config()
 
 const transporter = nodemailer.createTransport({
-	host: 'smtp.example.com',
+	host: 'smtp.mail.com',
 	port: 587,
 	secure: false,
 	auth: {
-		user: process.env.SMTP_USER,
-		pass: process.env.SMTP_PASS
+		user: process.env.EMAIL_USER,
+		pass: process.env.EMAIL_PASSWORD
 	}
 })
 
