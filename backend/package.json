@@ -11,6 +11,7 @@
 		"dotenv": "^16.0.0",
 		"express": "^5.2.1",
 		"jsonwebtoken": "^9.0.3",
+		"nodemailer": "^9.0.6",
 		"openai": "^4.0.0",
 		"pg": "^8.20.0"
 	},
@@ -20,6 +21,7 @@
 		"@types/express": "^5.0.6",
 		"@types/jsonwebtoken": "^9.0.10",
 		"@types/node": "^24.12.2",
+		"@types/nodemailer": "^8.0.1",
 		"@types/pg": "^8.20.0",
 		"typescript": "^6.0.2"
 	}
