@@ -230,70 +230,71 @@ app.get('/api/auth/me', (req: Request, res: Response) => {
 })
 
 const sendResetEmail = async (email: string, code: string) => {
-  const response = await fetch('https://api.brevo.com/v3/smtp/email', {
-    method: 'POST',
-    headers: {
-      accept: 'application/json',
-      'api-key': process.env.BREVO_API_KEY!,
-      'content-type': 'application/json'
-    },
-    body: JSON.stringify({
-      sender: {
-        name: 'Full Stack AI',
-        email: 'vegor405@gmail.com'
-      },
-      to: [
-        {
-          email
-        }
-      ],
-      subject: 'Password reset code',
-      textContent: `Your password reset code is: ${code}`
-    })
-  })
+	const response = await fetch('https://api.brevo.com/v3/smtp/email', {
+		method: 'POST',
+		headers: {
+			accept: 'application/json',
+			'api-key': process.env.BREVO_API_KEY!,
+			'content-type': 'application/json'
+		},
+		body: JSON.stringify({
+			sender: {
+				name: 'Full Stack AI',
+				email: 'vegor405@gmail.com'
+			},
+			to: [
+				{
+					email
+				}
+			],
+			subject: 'Password reset code',
+			textContent: `Your password reset code is: ${code}`
+		})
+	})
 
-  if (!response.ok) {
-    const errorText = await response.text()
-    throw new Error(`Brevo API error ${response.status}: ${errorText}`)
-  }
+	if (!response.ok) {
+		const errorText = await response.text()
+		throw new Error(`Brevo API error ${response.status}: ${errorText}`)
+	}
 
-  return response.json()
+	return response.json()
 }
 
 app.post('/api/auth/forgot-password', async (req: Request, res: Response) => {
-  console.log('REQUEST FORGOT PASSWORD')
-  console.log('Body:', req.body)
+	console.log('REQUEST FORGOT PASSWORD')
+	console.log('Body:', req.body)
 
-  const { email } = req.body
+	const { email } = req.body
 
-  if (!email) {
-    return res.status(400).json({
-      message: 'Email is required'
-    })
-  }
+	if (!email) {
+		return res.status(400).json({
+			message: 'Email is required'
+		})
+	}
 
-  const code = Math.floor(1000 + Math.random() * 9000).toString()
+	const code = Math.floor(1000 + Math.random() * 9000).toString()
 
-  resetCodes.set(email, code)
+	resetCodes.set(email, code)
 
-  try {
-    const result = await sendResetEmail(email, code)
+	try {
+		const result = await sendResetEmail(email, code)
 
-    console.log('Brevo response:', result)
-    console.log('Reset code sent to:', email)
+		console.log('Brevo response:', result)
+		console.log('Reset code sent to:', email)
 
-    return res.json({
-      message: 'Reset code sent'
-    })
-  } catch (error) {
-    console.error('Brevo email error:', error)
+		return res.json({
+			message: 'Reset code sent'
+		})
+	} catch (error) {
+		console.error('Brevo email error:', error)
 
-    resetCodes.delete(email)
+		resetCodes.delete(email)
 
-    return res.status(500).json({
-      message: 'Failed to send reset code'
-    })
-  }
+		return res.status(500).json({
+			message: 'Failed to send reset code',
+			error: error instanceof Error ? error.message : String(error)
+		})
+	}
 })
 
 app.post('/api/auth/verify-code', (req: Request, res: Response) => {
