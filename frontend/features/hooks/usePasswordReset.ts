@@ -25,7 +25,7 @@ export default function usePasswordReset() {
 
 		try {
 			const response = await axios.post(
-				'http://localhost:5000/api/auth/verify-code',
+				'https://full-stack-ai-6uq7.onrender.com/api/auth/verify-code',
 				{
 					email,
 					code: enteredCode
