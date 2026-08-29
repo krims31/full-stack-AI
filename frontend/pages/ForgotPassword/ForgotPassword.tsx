@@ -8,21 +8,7 @@ export default function ForgotPassword() {
 		<>
 			<main>
 				<form onSubmit={handleSubmit}>
-					<div
-						className="border rounded-xl
-    lg:w-100
-    lg:h-130
-    lg:mx-auto
-    lg:mt-30
-    lg:relative
-		right-10
-    placeholder:text-gray-600
-    transition-all
-    border-black/10
-    shadow-lg hover:shadow-xl
-    outline-0
-    text-black"
-					>
+					<div className="border rounded-xl lg:w-100 lg:h-130 lg:mx-auto lg:mt-30 lg:relative right-10 placeholder:text-gray-600 transition-all border-black/10 shadow-lg hover:shadow-xl outline-0 text-black">
 						<div className="border rounded-md w-10 h-10 relative top-20 left-44 placeholder:text-gray-600 transition-all border-black/10 shadow-lg hover:shadow-xl outline-0">
 							<FingerprintPattern className="mt-2 ml-2" />
 						</div>
