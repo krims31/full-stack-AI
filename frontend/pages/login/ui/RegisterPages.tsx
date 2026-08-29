@@ -70,7 +70,7 @@ export default function RegisterPages() {
 						/>
 
 						<UserCheck
-							className="absolute left-2 top-3 text-white"
+							className="absolute left-2.5 top-3 text-white"
 							size={30}
 						/>
 					</div>
