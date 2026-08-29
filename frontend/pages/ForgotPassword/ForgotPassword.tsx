@@ -10,8 +10,8 @@ export default function ForgotPassword() {
 				<form onSubmit={handleSubmit}>
 					<div
 						className="border rounded-xl
-    lg:w-[400px]
-    lg:h-[520px]
+    lg:w-100
+    lg:h-130
     lg:mx-auto
     lg:mt-30
     lg:relative
