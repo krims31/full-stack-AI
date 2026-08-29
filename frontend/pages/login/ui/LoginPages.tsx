@@ -113,7 +113,7 @@ export default function LoginPages() {
 						<button
 							type="button"
 							onClick={() => setShowPassword(!showPassword)}
-							className="absolute right-103 top-3 text-white"
+							className="absolute right-103 top-3 max-lg:left-2 text-white"
 						>
 							{showPassword ? (
 								<AiOutlineEye size={30} />
