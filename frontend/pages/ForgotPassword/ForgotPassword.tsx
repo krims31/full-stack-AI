@@ -23,7 +23,7 @@ export default function ForgotPassword() {
     outline-0
     text-black"
 					>
-						<div className="border rounded-md w-10 h-10 relative top-20 left-40 placeholder:text-gray-600 transition-all border-black/10 shadow-lg hover:shadow-xl outline-0">
+						<div className="border rounded-md w-10 h-10 relative top-20 left-44 placeholder:text-gray-600 transition-all border-black/10 shadow-lg hover:shadow-xl outline-0">
 							<FingerprintPattern className="mt-2 ml-2" />
 						</div>
 						<h1 className="flex item-center justify-center mt-25 ml-5 text-2xl lg:mt-25 text-black h-screen">
@@ -35,13 +35,13 @@ export default function ForgotPassword() {
 						</p>
 
 						<div>
-							<p className="text-black ml-12 mt-5">Email</p>
+							<p className="text-black ml-15 mt-5">Email</p>
 							<input
 								value={email}
 								onChange={e => setEmail(e.target.value)}
 								type="email"
 								placeholder="Enter your email"
-								className="border rounded-md w-70 h-9 transition-all border-black/10 shadow-lg hover:shadow-xl outline-0 pl-2 text-black placeholder:text-gray-600 focus:ring-2 focus:ring-black focus:border-transparent ml-12 mt-1"
+								className="border rounded-md w-70 h-9 transition-all border-black/10 shadow-lg hover:shadow-xl outline-0 pl-2 text-black placeholder:text-gray-600 focus:ring-2 focus:ring-black focus:border-transparent ml-15 mt-1"
 							/>
 						</div>
 
@@ -49,7 +49,7 @@ export default function ForgotPassword() {
 							<button
 								type="submit"
 								disabled={loading}
-								className="flex item-center justify-center border rounded-md w-70 h-10 transition-all border-black/10 bg-blue-600 shadow-lg hover:shadow-xl outline-0 cursor-pointer duration-300 hover:scale-105 active:scale-95 mt-10 ml-12"
+								className="flex item-center justify-center border rounded-md w-70 h-10 transition-all border-black/10 bg-blue-600 shadow-lg hover:shadow-xl outline-0 cursor-pointer duration-300 hover:scale-105 active:scale-95 mt-10 ml-15"
 							>
 								<span className="mt-2 text-white">
 									{loading ? 'Sending...' : 'Reset password'}
