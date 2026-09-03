@@ -432,39 +432,6 @@ Feature-Sliced Design на frontend и модульная структура bac
 
 ---
 
-# 📸 Screenshots
-
-Добавьте сюда несколько скриншотов приложения:
-
-```text
-docs/
-├── login.png
-├── register.png
-├── dashboard.png
-├── ai-generation.png
-└── desktop.png
-```
-
-Пример:
-
-```md
-## Screenshots
-
-### Authentication
-
-![Login](./docs/login.png)
-
-### AI Dashboard
-
-![Dashboard](./docs/dashboard.png)
-
-### AI Generation
-
-![AI Generation](./docs/ai-generation.png)
-```
-
----
-
 # 📄 License
 
 This project is licensed under the **MIT License**.
